@@ -1,18 +1,25 @@
 ProjectBernies::Application.routes.draw do
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
-
-  resources :users, only: [:new, :create, :show, :edit, :destroy ] do
-    resources :reflections, only:[:new, :edit, :destroy]
-    resources :pictures, only:[:new, :edit, :destroy]
+  resources :users do
+    resources :reflections, only:[:new, :create, :destroy]
+    resources :pictures, only:[:new, :create, :destroy]
   end
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :artifacts , only:[:new, :create, :show, :index]
+  resources :artifacts , only:[:new, :create, :show, :index] do
+    collection do
+      get 'explore'
+    end
+  end
 
   namespace :admin do
     # resources :posts, :comments, :artifacts, :reflections, :pictures
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
