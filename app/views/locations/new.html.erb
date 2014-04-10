@@ -1,0 +1,16 @@
+<div style="background-color: #eee; padding: 10px; float:left;">
+  <p class="tagger">Geocoder</p>
+  <p>Gets lat/long data via gmaps API and saves it as a location object</p>
+  <%= form_for @location do |f| %>
+    <%= label(:address, "Address:") %>
+    <%= f.text_field :address %><br>
+    <%= f.submit "submit" %>
+  <% end -%>
+</div>
+
+<div id="geoloca">
+  <p class="tagger">Geolocation</p>
+  <p>Gets the current position of the user</p>
+  <%= link_to "geolocation", nil, id: "geolocation" %>
+  <div id="latlong"></div>
+</div>

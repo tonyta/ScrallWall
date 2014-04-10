@@ -1,5 +1,6 @@
 class Artifact < ActiveRecord::Base
   belongs_to :neighborhood
+  belongs_to :location
 
   has_many :pictures
   has_many :reflections
