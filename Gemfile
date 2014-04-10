@@ -48,6 +48,9 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# geocoding
+gem 'geocoder'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
