@@ -9,4 +9,15 @@ class User < ActiveRecord::Base
 
   has_many :votes
   has_many :flags
+
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :first_name, presence: true
+  validates :first_name, length: {in: 2..12}
+  validates :last_name, length: {in: 2..12}
+  validates :email, presence: true
+  validates :email, format: {with: /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/, message: "Please introduce a valid email" }
+  validates :email, uniqueness: true
+  validates :bio, length: {maximum: 100}
+
 end
