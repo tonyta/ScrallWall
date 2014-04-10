@@ -46,6 +46,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'pry-rails'
 gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'rspec-rails'
