@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140410160639) do
+=======
+ActiveRecord::Schema.define(version: 20140410151455) do
+>>>>>>> Added location Model and implemented GeoCoder gmaps API
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +46,15 @@ ActiveRecord::Schema.define(version: 20140410160639) do
     t.integer  "user_id"
     t.integer  "flaggable_id"
     t.string   "flaggable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
