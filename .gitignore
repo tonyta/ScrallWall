@@ -17,3 +17,6 @@
 /coverage
 
 .DS_Store
+
+# Ignores development uploads
+/public/uploads
