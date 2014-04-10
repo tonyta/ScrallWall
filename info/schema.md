@@ -1,4 +1,4 @@
-![schema]('./schema.tiff')
+![schema](schema.tiff)
 
 ``` xml
 <?xml version="1.0" encoding="utf-8" ?>
