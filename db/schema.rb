@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20140410160639) do
   end
 
   create_table "locations", force: true do |t|
-    t.string   "name"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
