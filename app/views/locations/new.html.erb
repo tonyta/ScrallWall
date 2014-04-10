@@ -1,0 +1,9 @@
+<%= form_for @location do |f| %>
+  <%= label(:address, "Address:") %>
+  <%= f.text_field :address %><br>
+  <%= label(:latitude, "Latitude:") %>
+  <%= f.number_field :latitude %><br>
+  <%= label(:longitude, "Longitude:") %>
+  <%= f.number_field :longitude %><br>
+  <%= f.submit "submit" %>
+<% end -%>
