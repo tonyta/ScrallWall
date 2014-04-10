@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Tag do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:artifact_tags) }
+  it { should have_many(:artifacts).through(:artifact_tags) }
 end

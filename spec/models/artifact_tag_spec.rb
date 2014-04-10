@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe ArtifactTag do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:tag) }
+  it { should belong_to(:artifact) }
+  it { should belong_to(:user) }
 end
