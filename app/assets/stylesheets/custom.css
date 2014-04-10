@@ -1,3 +1,15 @@
-body {
+.tagger {
   font-family: 'Rock Salt', cursive;
+}
+
+#geoloca {
+  margin-top: 20px;
+  clear: both;
+  background-color: #eee; 
+  padding: 10px; 
+  float:left;
+}
+
+#latlong {
+  margin-top:20px;
 }
