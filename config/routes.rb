@@ -1,4 +1,18 @@
 ProjectBernies::Application.routes.draw do
+
+
+  resources :users, only: [:new, :create, :show, :edit, :destroy ] do
+    resources :reflections, only:[:new, :edit, :destroy]
+    resources :pictures, only:[:new, :edit, :destroy]
+  end
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :artifacts , only:[:new, :create, :show, :index]
+
+  namespace :admin do
+    # resources :posts, :comments, :artifacts, :reflections, :pictures
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
