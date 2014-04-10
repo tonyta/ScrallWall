@@ -7,4 +7,16 @@ class ArtifactsController < ApplicationController
       marker.lng(artifact.longitude)
     end
   end
+
+  def explore
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+  def show
+  end
 end
