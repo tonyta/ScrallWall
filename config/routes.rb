@@ -18,7 +18,7 @@ ProjectBernies::Application.routes.draw do
     end
   end
 
-  resources :locations, only:[:new, :create ]
+  resources :locations, only:[:new, :create, :show, :index ]
 
   namespace :admin do
     # resources :posts, :comments, :artifacts, :reflections, :pictures

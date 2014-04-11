@@ -1,6 +1,8 @@
 class Artifact < ActiveRecord::Base
+  acts_as_mappable :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
+
   belongs_to :neighborhood
-  belongs_to :location
 
   has_many :pictures
   has_many :reflections
@@ -10,4 +12,7 @@ class Artifact < ActiveRecord::Base
 
   has_many :favs
   has_many :favoritors, through: :favs, source: :user_id
+
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
 end

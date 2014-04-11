@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410160639) do
+ActiveRecord::Schema.define(version: 20140411163944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20140410160639) do
 
   create_table "artifacts", force: true do |t|
     t.integer  "neighborhood_id"
-    t.string   "geotag"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "favs", force: true do |t|
@@ -42,14 +43,6 @@ ActiveRecord::Schema.define(version: 20140410160639) do
     t.integer  "user_id"
     t.integer  "flaggable_id"
     t.string   "flaggable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "locations", force: true do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

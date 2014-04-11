@@ -1,0 +1,44 @@
+artifacts#index
+
+<div id="map-container">
+  <div id="map"></div>
+</div>
+
+<%= form_tag artifacts_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
+
+<div style="background-color: #eee; padding: 10px; float:left;">
+  <p class="tagger">Geocoder</p>
+  <p>Gets lat/long data via gmaps API and saves it as a location object</p>
+  <%= form_for :artifact do |f| %>
+    <%= label(:address, "Address:") %>
+    <%= f.text_field :address %><br>
+    <%= f.submit "submit" %>
+  <% end -%>
+</div>
+
+<div id="geoloca">
+  <p class="tagger">Geolocation</p>
+  <p>Gets the current position of the user</p>
+  <%= link_to "geolocation", nil, id: "geolocation" %>
+  <div id="latlong"></div>
+</div>
+
+<table id="artifacts" class="list">
+  <tr>
+    <th>Adress</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+  <% @artifacts.each do |art| %>
+  <tr>
+    <td><%= art.address %></td>
+    <td><%= art.latitude %></td>
+    <td><%= art.longitude %></td>
+  </tr>
+  <% end %>
+</table>
