@@ -7,5 +7,37 @@
     <%= f.file_field :image %>
     <%= f.submit %>
   <% end %>
-
+  <button id='get-location'>get location</button>
+  <p id='location-info'></p>
 </div>
+
+<script>
+
+  function getGeo(){
+    navigator.geolocation.getCurrentPosition(
+      function(data){
+        geodata = data;
+        latitude = geodata.coords.latitude;
+        longitude = geodata.coords.longitude;
+        $("#location-info").append(latitude);
+        $("#location-info").append(longitude);
+
+        console.log('success!');
+      },
+      function(){
+        console.log('error');
+      }
+    )
+  }
+
+  var geodata;
+  var latitude;
+  var longitude;
+
+  $(document).ready(function(){
+
+    $('#get-location').on("click", getGeo);
+
+  })
+
+</script>
