@@ -11,5 +11,4 @@ describe Artifact do
   it { should have_many(:reflections) }
 
   it { should belong_to(:neighborhood) }
-  it { should belong_to(:location) }
 end

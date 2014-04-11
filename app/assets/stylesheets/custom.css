@@ -5,11 +5,16 @@
 #geoloca {
   margin-top: 20px;
   clear: both;
-  background-color: #eee; 
-  padding: 10px; 
+  background-color: #eee;
+  padding: 10px;
   float:left;
 }
 
 #latlong {
   margin-top:20px;
+}
+
+#artifacts.list {
+  display: block;
+  clear: both;
 }

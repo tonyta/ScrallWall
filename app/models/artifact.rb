@@ -1,4 +1,7 @@
 class Artifact < ActiveRecord::Base
+  acts_as_mappable :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
+
   belongs_to :neighborhood
 
   has_many :pictures
@@ -10,16 +13,6 @@ class Artifact < ActiveRecord::Base
   has_many :favs
   has_many :favoritors, through: :favs, source: :user_id
 
-  geocoded_by :address
-  after_validation :geocode
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
 end
-
-create_table "artifacts", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.string   "geotag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "location_id"
-    t.float    "latitude"
-    t.float    "longitude"
-  end

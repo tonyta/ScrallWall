@@ -26,10 +26,8 @@ ActiveRecord::Schema.define(version: 20140411163944) do
 
   create_table "artifacts", force: true do |t|
     t.integer  "neighborhood_id"
-    t.string   "geotag"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "location_id"
     t.float    "latitude"
     t.float    "longitude"
   end
@@ -45,14 +43,6 @@ ActiveRecord::Schema.define(version: 20140411163944) do
     t.integer  "user_id"
     t.integer  "flaggable_id"
     t.string   "flaggable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "locations", force: true do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
