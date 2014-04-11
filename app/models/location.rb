@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  belongs_to :artifact
+  has_many :artifacts
   
   geocoded_by :address
   after_validation :geocode
