@@ -10,6 +10,8 @@ ProjectBernies::Application.routes.draw do
     resources :pictures, only:[:new, :create, :destroy]
   end
 
+  resources :pictures, only: [:new, :create]
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :artifacts , only:[:new, :create, :show, :index] do
