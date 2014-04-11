@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    raise params
+    raise params.inspect
     @picture = Picture.create
     @picture.image = params[:picture][:image]
     @picture.save!
