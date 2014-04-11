@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .tagger {
   font-family: 'Rock Salt', cursive;
 }
@@ -17,4 +22,10 @@
 #artifacts.list {
   display: block;
   clear: both;
+}
+
+#map {
+  width: 100%;
+  margin: 0;
+  height: 800px;
 }

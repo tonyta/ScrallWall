@@ -1,9 +1,8 @@
-artifacts#index
-
+<p><%= @hash.inspect %></p>
 <div id="map-container">
   <div id="map"></div>
 </div>
-
+<p></p>
 <%= form_tag artifacts_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -30,15 +29,22 @@ artifacts#index
 
 <table id="artifacts" class="list">
   <tr>
-    <th>Adress</th>
+    <th>ID</th>
+    <th>Neighborhood</th>
     <th>Latitude</th>
     <th>Longitude</th>
   </tr>
   <% @artifacts.each do |art| %>
   <tr>
-    <td><%= art.address %></td>
+    <td><%= art.id %></td>
+    <td><%= art.neighborhood.name %></td>
     <td><%= art.latitude %></td>
     <td><%= art.longitude %></td>
   </tr>
   <% end %>
 </table>
+
+
+<script>
+  var hashed = <%=raw @hash.to_json %>;
+</script>

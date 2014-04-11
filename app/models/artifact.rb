@@ -13,6 +13,6 @@ class Artifact < ActiveRecord::Base
   has_many :favs
   has_many :favoritors, through: :favs, source: :user_id
 
-  reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode
+  # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode
 end
