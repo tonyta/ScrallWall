@@ -1,5 +1,5 @@
 class AddPictureToPictures < ActiveRecord::Migration
   def change
-    add_column :pictures, :picture, :string
+    add_column :pictures, :image, :string
   end
 end

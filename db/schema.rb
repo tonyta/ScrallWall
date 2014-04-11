@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140411163944) do
     t.string   "thumb_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture"
+    t.string   "image"
   end
 
   create_table "reflections", force: true do |t|
