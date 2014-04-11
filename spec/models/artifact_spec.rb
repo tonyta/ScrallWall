@@ -11,4 +11,8 @@ describe Artifact do
   it { should have_many(:reflections) }
 
   it { should belong_to(:neighborhood) }
+
+  describe "artifact validations" do
+    it {should validate_presence_of(:geotag)}
+  end
 end

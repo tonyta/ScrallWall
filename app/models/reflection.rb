@@ -4,4 +4,8 @@ class Reflection < ActiveRecord::Base
 
   has_many :votes, as: :votable
   has_many :flags, as: :flaggable
+
+  validates :text, presence: true
+  validates :text, length: {minimum: 1}
+
 end

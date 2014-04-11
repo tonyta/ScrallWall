@@ -10,4 +10,6 @@ class Artifact < ActiveRecord::Base
 
   has_many :favs
   has_many :favoritors, through: :favs, source: :user_id
+
+  validates :geotag, presence:true
 end
