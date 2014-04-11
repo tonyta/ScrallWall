@@ -7,5 +7,5 @@ class Picture < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :flags, as: :flaggable
 
-  mount_uploader :picture, PictureUploader
+  mount_uploader :image, ImageUploader
 end
