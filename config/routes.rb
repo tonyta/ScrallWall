@@ -18,6 +18,8 @@ ProjectBernies::Application.routes.draw do
     end
   end
 
+  get 'artihash', to: 'artifacts#artihash', as: 'artihash'
+
   resources :locations, only:[:new, :create, :show, :index ]
 
   namespace :admin do
