@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    # raise params.inspect
     @picture = Picture.create
     @picture.image = params[:picture][:image]
     @picture.save!
@@ -14,11 +14,10 @@ class PicturesController < ApplicationController
     longitude = params[:longitude]
 
     radius = 0.5
-    artifact = Artifact.new(longitude: longitude, latitude: latitude)
-    @nearby_artifacts = Artifact.within(radius, artifact)
-    # get_nearby_artifacts(latitude, longitude)
+    # @artifact = Artifact.new(longitude: longitude, latitude: latitude)
+    # @nearby_artifacts = Artifact.within(radius, artifact)
 
-    redirect_to XXX
+    render 'edit'
   end
 
   def destroy
