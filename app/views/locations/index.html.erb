@@ -4,3 +4,19 @@
     <%= submit_tag "Search Near", :name => nil %>
   </p>
 <% end %>
+
+
+<table>
+  <tr>
+    <th>Adress</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+  <% @locations.each do |loc| %>
+  <tr>
+    <td><%= loc.address %></td>
+    <td><%= loc.latitude %></td>
+    <td><%= loc.longitude %></td>
+  </tr>
+  <% end %>
+</table>
