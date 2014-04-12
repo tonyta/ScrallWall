@@ -22,6 +22,8 @@ ProjectBernies::Application.routes.draw do
 
   get 'artihash', to: 'artifacts#artihash', as: 'artihash'
 
+  patch 'artifacts/:artifact_id/pictures/:picture_id', to: 'pictures#update', as: 'artifact_picture'
+
   resources :locations, only:[:new, :create, :show, :index ]
 
   namespace :admin do
