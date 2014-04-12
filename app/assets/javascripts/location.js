@@ -14,7 +14,7 @@ $(document).ready(function() {
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: oldTimey
     },
-    internal: {
+    ignternal: {
       id: 'map'
     }
   },
