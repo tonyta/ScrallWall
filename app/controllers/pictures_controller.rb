@@ -10,12 +10,14 @@ class PicturesController < ApplicationController
     @picture.image = params[:picture][:image]
     @picture.save!
 
-    latitude = params[:latitude]
-    longitude = params[:longitude]
+    # unless available in EXIF of photo
+      latitude = params[:latitude]
+      longitude = params[:longitude]
+    # end
 
     radius = 0.5
     # @artifact = Artifact.new(longitude: longitude, latitude: latitude)
-    # @nearby_artifacts = Artifact.within(radius, artifact)
+    @nearby_artifacts = Artifact.within(radius, artifact)
 
     render 'edit'
   end
