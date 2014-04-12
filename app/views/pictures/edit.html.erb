@@ -3,3 +3,5 @@
 <% @canonical_pictures.each do |pic| %>
   <%= link_to (image_tag pic.image.thumb.url), artifact_picture_path(pic.artifact, @picture), method: :patch %>
 <% end %>
+<br />
+<%= link_to "New", picture_path(@picture), method: :patch %>
