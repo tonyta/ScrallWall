@@ -12,4 +12,32 @@ class Artifact < ActiveRecord::Base
 
   has_many :favs
   has_many :favoritors, through: :favs, source: :user_id
+
+  scope :close_to, -> (latitude, longitude, distance_in_meters = 2000) {
+    where(%{
+      ST_DWithin(
+        ST_GeographyFromText(
+          'SRID=4326;POINT(' || artifacts.latitude || ' ' || artifacts.longitude || ')'
+        ),
+        ST_GeographyFromText('SRID=4326;POINT(%f %f)'),
+        %d
+      )
+    } % [latitude, longitude, distance_in_meters])
+    .order(%{
+      'SRID=4326;POINT(' || artifacts.latitude || ' ' || artifacts.longitude || ')' <->
+      'SRID=4326;POINT(%f %f)'
+    } % [latitude, longitude])
+  }
+
+  scope :closest_to, -> (latitude, longitude, distance_in_meters = 2000) {
+    where(%{
+      ST_DWithin(
+        ST_GeographyFromText(
+          'SRID=4326;POINT(' || artifacts.latitude || ' ' || artifacts.longitude || ')'
+        ),
+        ST_GeographyFromText('SRID=4326;POINT(%f %f)'),
+        %d
+      )
+    } % [latitude, longitude, distance_in_meters])
+  }
 end
