@@ -5,7 +5,6 @@ class ArtifactsController < ApplicationController
     # #within is a Geokit-rails method
     # @artifacts = Artifact.within(5, origin: Artifact.find(1))
 
-
     @artifacts.map! do |artifact|
       @first_image = artifact.pictures.first.image
       { lat: artifact.latitude,
