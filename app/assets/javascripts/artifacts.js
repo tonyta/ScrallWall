@@ -5,7 +5,7 @@ $(document).ready(function() {
   var map = L.map('map', {
       center: [41.8897866, -87.6371788],
       layers: layer,
-      zoom: 16 // max-zoom is 19
+      zoom: 13 // max-zoom is 19
     });
 
   function getLatLon(e) {
@@ -17,9 +17,9 @@ $(document).ready(function() {
   }
 
   function contentBuilder(image) {
-    return "<img style='border:8px solid #222' src='" + image + "'>
-            <div>Title and stuff</div>
-            <a href='http://google.com'>Content to Click</a>"
+    return "<img style='border:8px solid #222' src='" + image + "'>" +
+            "<div>Title and stuff</div>" +
+            "<a href='http://google.com'>Content to Click</a>"
   }
 
   // L.marker({lat:41.8897866, lon:-87.6371788}, {icon: myIcon, riseOnHover: true} ).addTo(map);
