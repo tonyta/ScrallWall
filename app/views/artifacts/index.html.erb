@@ -1,7 +1,10 @@
-<%= javascript_include_tag params[:locations] %>
+<%= javascript_include_tag :artifacts %>
 
+<!-- div#map required for loading gmap -->
 <div id="map"></div>
 
 <script>
-  var hashed = <%=raw @hash.to_json %>;
+  // passes data from server to JS
+  var artifacts = <%=raw @artifacts.to_json %>;
+  console.log(artifacts);
 </script>

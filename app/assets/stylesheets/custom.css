@@ -32,3 +32,13 @@ body {
   bottom: 0;
   left: 0;
 }
+
+.gm-style-iw {
+  border: 1px solid red;
+}
+
+/* Mapbox CSS overrides */
+
+.leaflet-popup-content {
+  width: 160px;
+}
