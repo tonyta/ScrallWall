@@ -1,5 +1,4 @@
 class PicturesController < ApplicationController
-
   def new
     @picture = Picture.new
   end
@@ -9,18 +8,19 @@ class PicturesController < ApplicationController
 
     redirect_to new_picture_path and return unless image
 
-    latitude, longitude = get_lat_long(image)
+    @latitude, @longitude = get_lat_long(image)
 
     p '-'*48
-    p "latitude: #{latitude}"
-    p "longitude: #{longitude}"
+    p "latitude: #{@latitude}"
+    p "longitude: #{@longitude}"
     p '-'*48
     @picture = Picture.create
     @picture.image = params[:picture][:image]
     @picture.save!
 
     radius = 0.50
-    @artifact = Artifact.new(longitude: longitude, latitude: latitude)
+    # this goes away with PostGIS
+    @artifact = Artifact.new(longitude: @longitude, latitude: @latitude)
     @nearby_artifacts = Artifact.within(radius, origin: @artifact)
 
     @canonical_pictures = @nearby_artifacts.map do |artifact|
@@ -31,16 +31,17 @@ class PicturesController < ApplicationController
   end
 
   def update
+    artifact_id = params[:artifact_id]
+    latitude = params[:picture][:latitude]
+    longitude = params[:picture][:longitude]
 
-    artifact = Artifact.find_or_create_by_id(params[:artifact_id])
+    artifact = Artifact.find_by_id(artifact_id) ||
+               Artifact.create!(latitude: latitude, longitude: longitude)
 
-    picture = if params[:picture_id]
-                Picture.find(params[:picture_id])
-              else
-                Picture.find(params[:id])
-              end
+    picture = Picture.find(params[:picture_id] || params[:id])
 
     artifact.pictures << picture
+    binding.pry
 
     redirect_to '/'
   end
@@ -55,6 +56,7 @@ class PicturesController < ApplicationController
       latitude = exif.latitude
       longitude = exif.longitude
     else
+      # gps coords from browser
       latitude = params[:picture][:latitude]
       longitude = params[:picture][:longitude]
     end

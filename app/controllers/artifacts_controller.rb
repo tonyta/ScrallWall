@@ -1,7 +1,7 @@
 class ArtifactsController < ApplicationController
   def index
     # #within is a Geokit-rails method
-    @artifacts = Artifact.all
+    @artifacts = Artifact.last(2)
     # #within is a Geokit-rails method
     # @artifacts = Artifact.within(5, origin: Artifact.find(1))
 
