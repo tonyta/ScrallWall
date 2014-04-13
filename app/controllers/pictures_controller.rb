@@ -5,14 +5,19 @@ class PicturesController < ApplicationController
   end
 
   def create
+    image = params[:picture][:image].tempfile
+
+    redirect_to new_picture_path and return unless image
+
+    latitude, longitude = get_lat_long(image)
+
+    p '-'*48
+    p "latitude: #{latitude}"
+    p "longitude: #{longitude}"
+    p '-'*48
     @picture = Picture.create
     @picture.image = params[:picture][:image]
     @picture.save!
-
-
-    latitude = params[:picture][:latitude]
-    longitude = params[:picture][:longitude]
-
 
     radius = 0.50
     @artifact = Artifact.new(longitude: longitude, latitude: latitude)
@@ -42,4 +47,16 @@ class PicturesController < ApplicationController
   def destroy
   end
 
+  private
+
+  def get_lat_long(image)
+    if exif = EXIFR::JPEG.new(image).gps
+      latitude = exif.latitude
+      longitude = exif.longitude
+    else
+      latitude = params[:picture][:latitude]
+      longitude = params[:picture][:longitude]
+    end
+    [latitude, longitude]
+  end
 end
