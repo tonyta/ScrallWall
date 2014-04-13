@@ -14,10 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   process :fix_rotation # this should go before all other "process" steps
-
-  version :show do
-    process resize_to_fit: [800, 800]
-  end
+  process resize_to_fit: [800, 800]
 
   version :preview do
     process resize_to_fit: [600, 600]
