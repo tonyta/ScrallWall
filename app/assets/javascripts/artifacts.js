@@ -16,8 +16,10 @@ $(document).ready(function() {
     return L.icon({iconUrl: imageUrl});
   }
 
-  function imageTagBuilder(image) {
-    return "<img src='" + image + "'>"
+  function contentBuilder(image) {
+    return "<img style='border:8px solid #222' src='" + image + "'>
+            <div>Title and stuff</div>
+            <a href='http://google.com'>Content to Click</a>"
   }
 
   // L.marker({lat:41.8897866, lon:-87.6371788}, {icon: myIcon, riseOnHover: true} ).addTo(map);
@@ -25,7 +27,7 @@ $(document).ready(function() {
   $.each(artifacts, function(i, object){
     L.marker({lat: object.lat, lon: object.lon},
              {icon: new IconFactory(object.map_thumb), riseOnHover: true}
-            ).addTo(map).bindPopup(imageTagBuilder(object.info_thumb));
+            ).addTo(map).bindPopup(contentBuilder(object.info_thumb));
   });
 
 
