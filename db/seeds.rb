@@ -1,7 +1,7 @@
 
 # seeding pics
 
-path = Rails.root.join('db', 'seeds', '*.JPG')
+path = Rails.root.join('..', 'seed', '*.JPG')
 Dir[path].each do |file|
   puts "Seeding #{file}..."
   exif = EXIFR::JPEG.new(file)
