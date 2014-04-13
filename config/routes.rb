@@ -10,6 +10,8 @@ ProjectBernies::Application.routes.draw do
     resources :pictures, only:[:new, :create, :destroy]
   end
 
+  resources :pictures, only: [:new, :create, :update]
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :artifacts , only:[:new, :create, :show, :index] do
@@ -19,6 +21,8 @@ ProjectBernies::Application.routes.draw do
   end
 
   get 'artihash', to: 'artifacts#artihash', as: 'artihash'
+
+  patch 'artifacts/:artifact_id/pictures/:picture_id', to: 'pictures#update', as: 'artifact_picture'
 
   resources :locations, only:[:new, :create, :show, :index ]
 

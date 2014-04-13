@@ -47,6 +47,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'exifr'
 
 # geocoding
 gem 'geocoder'

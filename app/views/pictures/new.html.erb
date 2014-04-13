@@ -1,0 +1,35 @@
+
+<div class="container">
+  <h2>Upload</h2>
+
+  <%= form_for @picture do |f| %>
+    <%= f.file_field :image %>
+    <%= f.text_field :longitude, value: '', type: 'hidden' %>
+    <%= f.text_field :latitude, value: '', type: 'hidden' %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
+
+
+<script>
+  function getGeo(){
+    navigator.geolocation.getCurrentPosition(
+      function(data){
+        var geodata = data;
+        var latitude = geodata.coords.latitude;
+        var longitude = geodata.coords.longitude;
+        $("#picture_longitude").val(longitude);
+        $("#picture_latitude").val(latitude);
+
+        console.log('success!');
+      },
+      function(){
+        console.log('error');
+      }
+    )
+  }
+
+  $(document).ready(getGeo)
+
+</script>
