@@ -7,6 +7,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}"
   end
 
+  def fix_rotation
+    manipulate! do |image|
+      image.tap(&:auto_orient)
+    end
+  end
+
+  process :fix_rotation # this should go before all other "process" steps
+
   version :show do
     process resize_to_fit: [800, 800]
   end
