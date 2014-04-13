@@ -14,8 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require underscore
-<<<<<<< HEAD
 //= require gmaps/google
-=======
-//= require gmaps/google
->>>>>>> Toying with Gmaps4rails

@@ -31,6 +31,7 @@ class PicturesController < ApplicationController
   end
 
   def update
+
     artifact = Artifact.find_or_create_by_id(params[:artifact_id])
 
     picture = if params[:picture_id]
