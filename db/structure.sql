@@ -49,7 +49,6 @@ SET default_with_oids = false;
 
 CREATE TABLE artifact_tags (
     id integer NOT NULL,
-    user_id integer,
     artifact_id integer,
     tag_id integer,
     created_at timestamp without time zone,
@@ -82,11 +81,10 @@ ALTER SEQUENCE artifact_tags_id_seq OWNED BY artifact_tags.id;
 
 CREATE TABLE artifacts (
     id integer NOT NULL,
-    neighborhood_id integer,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
     latitude numeric(9,6),
-    longitude numeric(9,6)
+    longitude numeric(9,6),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -110,114 +108,15 @@ ALTER SEQUENCE artifacts_id_seq OWNED BY artifacts.id;
 
 
 --
--- Name: favs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE favs (
-    id integer NOT NULL,
-    user_id integer,
-    artifact_id integer,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: favs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE favs_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: favs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE favs_id_seq OWNED BY favs.id;
-
-
---
--- Name: flags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE flags (
-    id integer NOT NULL,
-    user_id integer,
-    flaggable_id integer,
-    flaggable_type character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: flags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE flags_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: flags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE flags_id_seq OWNED BY flags.id;
-
-
---
--- Name: neighborhoods; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE neighborhoods (
-    id integer NOT NULL,
-    name character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: neighborhoods_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE neighborhoods_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: neighborhoods_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE neighborhoods_id_seq OWNED BY neighborhoods.id;
-
-
---
 -- Name: pictures; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE pictures (
     id integer NOT NULL,
-    user_id integer,
     artifact_id integer,
-    url character varying(255),
-    thumb_url character varying(255),
+    image character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    image character varying(255)
+    updated_at timestamp without time zone
 );
 
 
@@ -246,8 +145,8 @@ ALTER SEQUENCE pictures_id_seq OWNED BY pictures.id;
 
 CREATE TABLE reflections (
     id integer NOT NULL,
-    user_id integer,
     artifact_id integer,
+    name character varying(255),
     text text,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
@@ -314,75 +213,6 @@ ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE users (
-    id integer NOT NULL,
-    username character varying(255),
-    first_name character varying(255),
-    last_name character varying(255),
-    email character varying(255),
-    bio text,
-    password_digest character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE users_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE users_id_seq OWNED BY users.id;
-
-
---
--- Name: votes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE votes (
-    id integer NOT NULL,
-    user_id integer,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    picture_id integer,
-    vote_value integer
-);
-
-
---
--- Name: votes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE votes_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
-
-
---
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -394,27 +224,6 @@ ALTER TABLE ONLY artifact_tags ALTER COLUMN id SET DEFAULT nextval('artifact_tag
 --
 
 ALTER TABLE ONLY artifacts ALTER COLUMN id SET DEFAULT nextval('artifacts_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY favs ALTER COLUMN id SET DEFAULT nextval('favs_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY flags ALTER COLUMN id SET DEFAULT nextval('flags_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY neighborhoods ALTER COLUMN id SET DEFAULT nextval('neighborhoods_id_seq'::regclass);
 
 
 --
@@ -439,20 +248,6 @@ ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclas
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regclass);
-
-
---
 -- Name: artifact_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -466,30 +261,6 @@ ALTER TABLE ONLY artifact_tags
 
 ALTER TABLE ONLY artifacts
     ADD CONSTRAINT artifacts_pkey PRIMARY KEY (id);
-
-
---
--- Name: favs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY favs
-    ADD CONSTRAINT favs_pkey PRIMARY KEY (id);
-
-
---
--- Name: flags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY flags
-    ADD CONSTRAINT flags_pkey PRIMARY KEY (id);
-
-
---
--- Name: neighborhoods_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY neighborhoods
-    ADD CONSTRAINT neighborhoods_pkey PRIMARY KEY (id);
 
 
 --
@@ -517,22 +288,6 @@ ALTER TABLE ONLY tags
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
-
-
---
--- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY votes
-    ADD CONSTRAINT votes_pkey PRIMARY KEY (id);
-
-
---
 -- Name: index_on_artifacts_location; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -552,40 +307,16 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 SET search_path TO "$user",public;
 
-INSERT INTO schema_migrations (version) VALUES ('20140410021102');
-
 INSERT INTO schema_migrations (version) VALUES ('20140410021202');
 
 INSERT INTO schema_migrations (version) VALUES ('20140410021318');
 
 INSERT INTO schema_migrations (version) VALUES ('20140410021424');
 
-INSERT INTO schema_migrations (version) VALUES ('20140410021616');
-
-INSERT INTO schema_migrations (version) VALUES ('20140410021746');
-
-INSERT INTO schema_migrations (version) VALUES ('20140410021851');
-
 INSERT INTO schema_migrations (version) VALUES ('20140410021952');
 
 INSERT INTO schema_migrations (version) VALUES ('20140410022045');
 
-INSERT INTO schema_migrations (version) VALUES ('20140410022108');
-
-INSERT INTO schema_migrations (version) VALUES ('20140410151455');
-
-INSERT INTO schema_migrations (version) VALUES ('20140410160639');
-
-INSERT INTO schema_migrations (version) VALUES ('20140411002750');
-
-INSERT INTO schema_migrations (version) VALUES ('20140411163944');
-
 INSERT INTO schema_migrations (version) VALUES ('20140413025954');
-
-INSERT INTO schema_migrations (version) VALUES ('20140413032940');
-
-INSERT INTO schema_migrations (version) VALUES ('20140413033124');
-
-INSERT INTO schema_migrations (version) VALUES ('20140413034048');
 
 INSERT INTO schema_migrations (version) VALUES ('20140413041539');

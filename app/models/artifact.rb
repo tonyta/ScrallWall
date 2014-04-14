@@ -7,9 +7,6 @@ class Artifact < ActiveRecord::Base
   has_many :artifact_tags
   has_many :tags, through: :artifact_tags
 
-  has_many :favs
-  has_many :favoritors, through: :favs, source: :user_id
-
   scope :near, -> (latitude, longitude, distance_in_meters = 250) {
     where(%{
       ST_DWithin(
