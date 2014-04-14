@@ -25,7 +25,7 @@ class PicturesController < ApplicationController
     lat, lng = params[:lat], params[:lng]
 
     neighbors = Artifact.near(lat, lng).map do |artifact|
-      {id: artifact.id, picture: artifact.canonical_picture.image.thumb.url}
+      {id: artifact.id, pictureUrl: artifact.canonical_picture.image.thumb.url}
     end
 
     render json: neighbors
