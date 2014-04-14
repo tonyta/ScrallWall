@@ -1,15 +1,14 @@
 
 var getNeighborNode = function() {
-  return $('.neighbor-template').first().clone();
+  return $('.neighbor-thumb').first().clone();
 }
 
 function updateNeighbors(pictureId, neighbors) {
   var allNeighbors = [getNeighborNode()]
   $.each(neighbors, function(i, neighbor){
-    var node = getNeighborNode().removeClass('neighbor-template');
+    var node = getNeighborNode().show().removeClass('template');
     node.attr('href', "/artifacts/"+neighbor.id+"/pictures/"+pictureId);
     node.find('img').attr('src', neighbor.picture);
-    allNeighbors.push(node);
   });
   $('#neighbors').html(allNeighbors);
 }

@@ -1,26 +1,29 @@
 <%= javascript_include_tag :pictures %>
 
-<div>
-  <%= image_tag @picture.image.preview.url %>
-</div>
+<div class="container">
+  <div class="inner">
+    <div id="user-image">
+      <%= image_tag @picture.image.preview.url %>
+    </div>
+    <div id="mini-map"></div>
+  </div>
 
-<div id="mini-map"></div>
+  <div id='neighbors' data-picture-id='<%= @picture.id %>'>
+    <a data-method='patch' class='neighbor-thumb template' href='' rel='nofollow'>
+      <img alt='' src=''>
+    </a>
+    <% @canonical_pictures.each do |pic| %>
+      <%= link_to (image_tag pic.image.thumb.url), artifact_picture_path(pic.artifact, @picture), method: :patch %>
+    <% end %>
+  </div>
 
-<div id='neighbors' data-picture-id='<%= @picture.id %>'>
-  <a data-method='patch' class='neighbor-template' href='' rel='nofollow'>
-    <img alt='' src=''>
-  </a>
-  <% @canonical_pictures.each do |pic| %>
-    <%= link_to (image_tag pic.image.thumb.url), artifact_picture_path(pic.artifact, @picture), method: :patch %>
+  <div>
+    <%= form_for @picture, method: :patch do |f| %>
+      <%= f.text_field :latitude, value: @latitude, type: 'hidden' %>
+      <%= f.text_field :longitude, value: @longitude, type: 'hidden' %>
+      <%= f.submit 'create new artifact' %>
   <% end %>
-</div>
-
-<div>
-  <%= form_for @picture, method: :patch do |f| %>
-    <%= f.text_field :latitude, value: @latitude, type: 'hidden' %>
-    <%= f.text_field :longitude, value: @longitude, type: 'hidden' %>
-    <%= f.submit 'create new artifact' %>
-<% end %>
+  </div>
 </div>
 
 <script>
