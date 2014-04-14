@@ -25,6 +25,7 @@ body {
 }
 
 #map {
+  height: 800px;
   position: absolute;
   width: 100%;
   margin: 0;
@@ -41,4 +42,9 @@ body {
 
 .leaflet-popup-content {
   width: 160px;
+}
+
+#mini-map {
+  width: 400px;
+  height: 300px;
 }
