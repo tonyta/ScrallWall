@@ -30,7 +30,7 @@ $(document).ready(function() {
   // latitude & longitude was set in the HTML-script in edit.html.erb
   var lat = latitude;
   var lng = longitude;
-  var picId = $('#neighbors').data().picId;
+  var picId = $('#neighbors').data().pictureId;
   var neighbors;
 
   updateNeighbors(picId, lat, lng);
