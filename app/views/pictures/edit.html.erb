@@ -7,12 +7,9 @@
 <div id="mini-map"></div>
 
 <div id='neighbors' data-picture-id='<%= @picture.id %>'>
-  <a data-method='patch' class='neighbor-template' href='' rel='nofollow'>
+  <a data-method='patch' class='neighbor-thumb template' href='' rel='nofollow'>
     <img alt='' src=''>
   </a>
-  <% @canonical_pictures.each do |pic| %>
-    <%= link_to (image_tag pic.image.thumb.url), artifact_picture_path(pic.artifact, @picture), method: :patch %>
-  <% end %>
 </div>
 
 <div>
