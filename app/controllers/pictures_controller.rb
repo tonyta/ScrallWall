@@ -37,7 +37,7 @@ class PicturesController < ApplicationController
 
     artifact.pictures << picture
 
-    redirect_to '/'
+    redirect_to artifact_path(artifact)
   end
 
   def destroy
