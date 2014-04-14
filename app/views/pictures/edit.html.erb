@@ -22,6 +22,6 @@
 
 <script>
   // passes data from server to JS
-  var latitude = <%=raw @latitude.to_json %>;
-  var longitude = <%=raw @longitude.to_json %>;
+  var latitude = <%= raw @latitude.to_json %>;
+  var longitude = <%= raw @longitude.to_json %>;
 </script>
