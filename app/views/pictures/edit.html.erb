@@ -1,23 +1,26 @@
 <%= javascript_include_tag :pictures %>
 
-<div>
-  <%= image_tag @picture.image.preview.url %>
-</div>
+<div class="container">
+  <div class="inner">
+    <div id="user-image">
+      <%= image_tag @picture.image.preview.url %>
+    </div>
+    <div id="mini-map"></div>
+  </div>
 
-<div id="mini-map"></div>
+  <div id='neighbors' data-picture-id='<%= @picture.id %>'>
+    <a data-method='patch' class='neighbor-thumb template' href='' rel='nofollow'>
+      <img alt='' src=''>
+    </a>
+  </div>
 
-<div id='neighbors' data-picture-id='<%= @picture.id %>'>
-  <a data-method='patch' class='neighbor-thumb template' href='' rel='nofollow'>
-    <img alt='' src=''>
-  </a>
-</div>
-
-<div>
-  <%= form_for @picture, method: :patch do |f| %>
-    <%= f.text_field :latitude, value: '', type: 'hidden' %>
-    <%= f.text_field :longitude, value: '', type: 'hidden' %>
-    <%= f.submit 'create new artifact' %>
-  <% end %>
+  <div>
+    <%= form_for @picture, method: :patch do |f| %>
+      <%= f.text_field :latitude, value: '', type: 'hidden' %>
+      <%= f.text_field :longitude, value: '', type: 'hidden' %>
+      <%= f.submit 'create new artifact' %>
+    <% end %>
+  </div>
 </div>
 
 <script>

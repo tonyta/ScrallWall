@@ -37,4 +37,8 @@ class Artifact < ActiveRecord::Base
   def canonical_picture
     self.pictures.first
   end
+
+  def picture_urls
+    self.pictures.map {|p| p.image.preview.url }
+  end
 end

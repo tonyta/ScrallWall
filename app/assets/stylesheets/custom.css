@@ -1,41 +1,176 @@
 body {
-  margin: 0;
-  padding: 0;
+  font-family: sans-serif;
+  background-color: #274147;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.bg, .overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.bg {
+  /*background-image: url('/images/chicagocityskyline.jpg');*/
+  background-image: url('/images/IMG_4697.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: #333;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  padding: 0 10px;
+  background-color: #fff;
+  height: 50px;
+  width: auto;
+  z-index: 2;
+}
+
+#logo, #logo a {
+  text-decoration: none;
+  font-size: .8em;
+  color: #111;
+  height: 50px;
+  font-family: 'Rock Salt', cursive;
+}
+
+.center {
+  text-align: center;
+}
+
+header h1 {
+  line-height: 50px;
+  float: left;
+}
+
+nav {
+  float: right;
+  margin-right: 20px;
+}
+
+.icon {
+  color: white;
+}
+
+.icon-box {
+  color: white;
+  margin-bottom: 60px;
+}
+
+#icons {
+  margin-top: 30%;
+  text-align: center;
+}
+
+#upload, #photo {
+  width: 100px;
+}
+
+#explore {
+  width: 120px;
+}
+
+#photo {
+  margin-bottom: 5px;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav li a {
+  text-decoration: none;
+}
+
+.container {
+  margin-top: 70px;
+  z-index: ;
+}
+
+.inner {
+  display: block;
+  clear: both;
+}
+
+.inner:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.big-icon {
+  font-size: 4em;
+  text-align: center;
+}
+
+input[type="file"] {
+  padding: 100px 50px;
+  border: 4px dashed #eee;
+  text-align: center;
+  clear: both;
+}
+
+#new_picture {
+  margin: auto;
+  text-align: center;
+}
+
+input[type="submit"] {
+  -webkit-appearance: none;
+  font-size: 1em;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+}
+
+#user-image {
+  width: 460px;
+  height: 340px;
+  float: left;
+  overflow: hidden;
+}
+
+#user-image img {
+  width: 100%;
+}
+
+#neighbors {
+  margin-top: 20px;
+}
+
+.neighbor-thumb.template {
+  display: none;
+}
+
+#neighbors a img {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .tagger {
   font-family: 'Rock Salt', cursive;
 }
 
-#geoloca {
-  margin-top: 20px;
-  clear: both;
-  background-color: #eee;
-  padding: 10px;
-  float:left;
-}
-
-#latlong {
-  margin-top:20px;
-}
-
-#artifacts.list {
-  display: block;
-  clear: both;
-}
-
 #map {
-  height: 800px;
   position: absolute;
   width: 100%;
   margin: 0;
   top: 0;
   bottom: 0;
   left: 0;
-}
-
-.gm-style-iw {
-  border: 1px solid red;
 }
 
 /* Mapbox CSS overrides */
@@ -45,6 +180,22 @@ body {
 }
 
 #mini-map {
-  width: 400px;
-  height: 300px;
+  width: 460px;
+  height: 340px;
+  float: right;
+}
+
+.leaflet-marker-pane img {
+  border: 4px solid #fff;
+  box-shadow: 1px 1px 5px #333;
+}
+
+img.leaflet-marker-draggable {
+  border: none;
+  box-shadow: none;
+}
+
+.preview-pic {
+  border: 12px solid #eee;
+  margin-bottom: 30px;
 }
