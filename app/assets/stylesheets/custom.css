@@ -4,7 +4,7 @@ body {
   margin: 0 auto;
 }
 
-nav {
+header {
   position: absolute;
   padding: 0 10px;
   top: 0;
@@ -18,12 +18,37 @@ nav {
   text-align: center;
 }
 
-nav h1 {
+header h1 {
   line-height: 50px;
+  float: left;
+}
+
+nav {
+  float: right;
+  margin-right: 20px;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav li a {
+  text-decoration: none;
 }
 
 .container {
   margin-top: 70px;
+}
+
+.inner {
+  display: block;
+  clear: both;
+}
+
+.inner:after {
+  clear: both;
+  display: block;
+  content: "";
 }
 
 .big-icon {
@@ -51,6 +76,32 @@ input[type="submit"] {
   margin: 10px;
 }
 
+#user-image {
+  width: 460px;
+  height: 340px;
+  float: left;
+  overflow: hidden;
+}
+
+#user-image img {
+  width: 100%;
+}
+
+#neighbors {
+  margin-top: 20px;
+}
+
+.neighbor-thumb.template {
+  display: none;
+}
+
+#neighbors a img {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 .tagger {
   font-family: 'Rock Salt', cursive;
 }
@@ -60,7 +111,7 @@ input[type="submit"] {
   position: absolute;
   width: 100%;
   margin: 0;
-  top: 0;
+  top: 50px;
   bottom: 0;
   left: 0;
 }
@@ -72,11 +123,17 @@ input[type="submit"] {
 }
 
 #mini-map {
-  width: 400px;
-  height: 300px;
+  width: 460px;
+  height: 340px;
+  float: right;
 }
 
 .leaflet-marker-pane img {
   border: 4px solid #fff;
   box-shadow: 1px 1px 5px #333;
+}
+
+img.leaflet-marker-draggable {
+  border: none;
+  box-shadow: none;
 }
