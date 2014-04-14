@@ -1,23 +1,28 @@
-
-var getNeighborNode = function() {
-  return $('.neighbor-thumb.template').first().clone();
-}
-
-function populateNeighbors(picId, neighbors) {
-  var allNeighbors = [getNeighborNode()];
-  $.each(neighbors, function(i, neighbor){
-    var node = getNeighborNode().removeClass('template');
-    var href = "/artifacts/" + neighbor.id + "/pictures/" + picId;
-    node.attr('href', href);
-    node.find('img').attr('src', neighbor.pictureUrl);
-    allNeighbors.push(node);
-  });
-  $('#neighbors').html(allNeighbors);
-}
-
 function updateFormData(lat, lng) {
   $('#picture_latitude').val(lat);
   $('#picture_longitude').val(lng);
+}
+
+function getNeighborNode() {
+  return $('.neighbor-thumb.template').first().clone();
+}
+
+function buildNeighborNode(picId, neighbor) {
+  var node = getNeighborNode().removeClass('template');
+  var href = "/artifacts/" + neighbor.id + "/pictures/" + picId;
+  var url = neighbor.pictureUrl
+
+  node.attr('href', href);
+  node.find('img').attr('src', url);
+  return node;
+}
+
+function populateNeighbors(picId, neighbors) {
+  var neighborNodes = [getNeighborNode()];
+  $.each(neighbors, function(i, neighbor){
+    neighborNodes.push( buildNeighborNode(picId, neighbor) );
+  });
+  $('#neighbors').html(neighborNodes);
 }
 
 function updateNeighbors(picId, lat, lng) {
@@ -33,6 +38,7 @@ $(document).ready(function() {
   var picId = $('#neighbors').data().pictureId;
   var neighbors;
 
+  updateFormData(lat, lng);
   updateNeighbors(picId, lat, lng);
 
   var layer = L.mapbox.tileLayer('examples.map-9ijuk24y');
