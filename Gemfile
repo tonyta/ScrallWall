@@ -49,12 +49,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'exifr'
 
-# geocoding
-gem 'geocoder'
-gem 'geokit-rails'
-gem 'gmaps4rails'
-gem 'underscore-rails'
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

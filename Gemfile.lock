@@ -64,13 +64,6 @@ GEM
     exifr (1.1.3)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
-    geocoder (1.1.9)
-    geokit (1.8.4)
-      multi_json (>= 1.3.2)
-    geokit-rails (2.0.1)
-      geokit (~> 1.5)
-      rails (>= 3.0)
-    gmaps4rails (2.1.2)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -177,7 +170,6 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    underscore-rails (1.6.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -193,9 +185,6 @@ DEPENDENCIES
   database_cleaner
   exifr
   factory_girl
-  geocoder
-  geokit-rails
-  gmaps4rails
   jbuilder (~> 1.2)
   jquery-rails
   launchy
@@ -209,4 +198,3 @@ DEPENDENCIES
   shoulda-matchers
   turbolinks
   uglifier (>= 1.3.0)
-  underscore-rails
