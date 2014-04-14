@@ -1,11 +1,10 @@
-
 <div class="container">
-  <h2>Upload</h2>
+  <h1 class="center">Upload</h1>
 
   <%= form_for @picture do |f| %>
     <%= f.file_field :image %>
     <%= f.text_field :longitude, value: '', type: 'hidden' %>
-    <%= f.text_field :latitude, value: '', type: 'hidden' %>
+    <%= f.text_field :latitude, value: '', type: 'hidden' %><br>
     <%= f.submit %>
   <% end %>
 
