@@ -4,19 +4,11 @@ class PicturesController < ApplicationController
   end
 
   def create
-    image = params[:picture][:image].tempfile
-
+    image = params[:picture][:image]
     redirect_to new_picture_path and return unless image
 
-    @latitude, @longitude = get_lat_long(image)
-
-    @picture = Picture.create
-    @picture.image = params[:picture][:image]
-    @picture.save!
-
-    @nearby_artifacts = Artifact.near(@latitude, @longitude)
-
-    @canonical_pictures = @nearby_artifacts.map(&:canonical_picture)
+    @latitude, @longitude = get_lat_long(image.tempfile)
+    @picture = Picture.create_with_image(image)
 
     render 'edit'
   end
@@ -45,7 +37,7 @@ class PicturesController < ApplicationController
 
     artifact.pictures << picture
 
-    redirect_to '/'
+    redirect_to artifact_path(artifact)
   end
 
   def destroy
@@ -54,14 +46,20 @@ class PicturesController < ApplicationController
   private
 
   def get_lat_long(image)
-    if exif = EXIFR::JPEG.new(image).gps
-      latitude = exif.latitude
-      longitude = exif.longitude
-    else
-      # gps coords from browser
-      latitude = params[:picture][:latitude]
-      longitude = params[:picture][:longitude]
+    begin
+      if exif = EXIFR::JPEG.new(image).gps
+        lat = exif.latitude
+        lng = exif.longitude
+      end
+    rescue
     end
-    [latitude, longitude]
+
+    lat ||= params[:picture][:latitude]
+    lng ||= params[:picture][:longitude]
+
+    lat = 41.879530 if lat == ''
+    lng = -87.626953 if lng == ''
+
+    [lat, lng]
   end
 end

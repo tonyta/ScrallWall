@@ -14,14 +14,14 @@
 
 <div>
   <%= form_for @picture, method: :patch do |f| %>
-    <%= f.text_field :latitude, value: @latitude, type: 'hidden' %>
-    <%= f.text_field :longitude, value: @longitude, type: 'hidden' %>
+    <%= f.text_field :latitude, value: '', type: 'hidden' %>
+    <%= f.text_field :longitude, value: '', type: 'hidden' %>
     <%= f.submit 'create new artifact' %>
-<% end %>
+  <% end %>
 </div>
 
 <script>
   // passes data from server to JS
-  var latitude = <%=raw @latitude.to_json %>;
-  var longitude = <%=raw @longitude.to_json %>;
+  var latitude = <%= raw @latitude.to_json %>;
+  var longitude = <%= raw @longitude.to_json %>;
 </script>
