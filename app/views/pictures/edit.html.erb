@@ -1,12 +1,30 @@
-<%= image_tag @picture.image.preview.url %>
-<br />
-<% @canonical_pictures.each do |pic| %>
-  <%= link_to (image_tag pic.image.thumb.url), artifact_picture_path(pic.artifact, @picture), method: :patch %>
-<% end %>
-<br />
+<%= javascript_include_tag :pictures %>
 
-<%= form_for @picture, method: :patch do |f| %>
+<div>
+  <%= image_tag @picture.image.preview.url %>
+</div>
+
+<div id="mini-map"></div>
+
+<div id='neighbors' data-picture-id='<%= @picture.id %>'>
+  <a data-method='patch' class='neighbor-template' href='' rel='nofollow'>
+    <img alt='' src=''>
+  </a>
+  <% @canonical_pictures.each do |pic| %>
+    <%= link_to (image_tag pic.image.thumb.url), artifact_picture_path(pic.artifact, @picture), method: :patch %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_for @picture, method: :patch do |f| %>
     <%= f.text_field :latitude, value: @latitude, type: 'hidden' %>
     <%= f.text_field :longitude, value: @longitude, type: 'hidden' %>
     <%= f.submit 'create new artifact' %>
 <% end %>
+</div>
+
+<script>
+  // passes data from server to JS
+  var latitude = <%=raw @latitude.to_json %>;
+  var longitude = <%=raw @longitude.to_json %>;
+</script>

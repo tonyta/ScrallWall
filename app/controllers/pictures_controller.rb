@@ -10,30 +10,33 @@ class PicturesController < ApplicationController
 
     @latitude, @longitude = get_lat_long(image)
 
-    p '-'*48
-    p "latitude: #{@latitude}"
-    p "longitude: #{@longitude}"
-    p '-'*48
     @picture = Picture.create
     @picture.image = params[:picture][:image]
     @picture.save!
 
-    radius = 0.50
-    # this goes away with PostGIS
-    @artifact = Artifact.new(longitude: @longitude, latitude: @latitude)
-    @nearby_artifacts = Artifact.within(radius, origin: @artifact)
+    @nearby_artifacts = Artifact.near(@latitude, @longitude)
 
-    @canonical_pictures = @nearby_artifacts.map do |artifact|
-      artifact.pictures.first
-    end
+    @canonical_pictures = @nearby_artifacts.map(&:canonical_picture)
 
     render 'edit'
   end
 
+  def neighbors
+    lat, lng = params[:lat], params[:lng]
+
+    neighbors = Artifact.near(lat, lng).map do |artifact|
+      {id: artifact.id, picture: artifact.canonical_picture.image.thumb.url}
+    end
+
+    render json: neighbors
+  end
+
   def update
     artifact_id = params[:artifact_id]
-    latitude = params[:picture][:latitude]
-    longitude = params[:picture][:longitude]
+
+    if params[:picture]
+      latitude, longitude = params[:picture][:latitude], params[:picture][:longitude]
+    end
 
     artifact = Artifact.find_by_id(artifact_id) ||
                Artifact.create!(latitude: latitude, longitude: longitude)
@@ -41,7 +44,6 @@ class PicturesController < ApplicationController
     picture = Picture.find(params[:picture_id] || params[:id])
 
     artifact.pictures << picture
-    binding.pry
 
     redirect_to '/'
   end

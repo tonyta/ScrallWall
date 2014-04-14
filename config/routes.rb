@@ -24,6 +24,8 @@ ProjectBernies::Application.routes.draw do
 
   patch 'artifacts/:artifact_id/pictures/:picture_id', to: 'pictures#update', as: 'artifact_picture'
 
+  get 'pictures/neighbors', to: 'pictures#neighbors', constraints: {format: 'json'}
+
   resources :locations, only:[:new, :create, :show, :index ]
 
   namespace :admin do

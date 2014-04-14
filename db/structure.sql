@@ -356,10 +356,10 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 CREATE TABLE votes (
     id integer NOT NULL,
     user_id integer,
-    votable_id integer,
-    votable_type character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    picture_id integer,
+    vote_value integer
 );
 
 
@@ -581,5 +581,11 @@ INSERT INTO schema_migrations (version) VALUES ('20140411002750');
 INSERT INTO schema_migrations (version) VALUES ('20140411163944');
 
 INSERT INTO schema_migrations (version) VALUES ('20140413025954');
+
+INSERT INTO schema_migrations (version) VALUES ('20140413032940');
+
+INSERT INTO schema_migrations (version) VALUES ('20140413033124');
+
+INSERT INTO schema_migrations (version) VALUES ('20140413034048');
 
 INSERT INTO schema_migrations (version) VALUES ('20140413041539');

@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe User do
   it { should have_many(:favs) }
-  it { should have_many(:favorites).through(:favs).source(:artifact_id) }
 
   it { should have_many(:artifact_tags) }
 
