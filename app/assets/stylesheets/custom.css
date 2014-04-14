@@ -1,17 +1,48 @@
 body {
   font-family: sans-serif;
+  background-color: #829094;
   width: 960px;
   margin: 0 auto;
 }
 
-header {
-  position: absolute;
-  padding: 0 10px;
+.bg, .overlay {
+  position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
-  background-color: #ddd;
+  bottom: 0;
+}
+
+.bg {
+  /*background-image: url('/images/chicagocityskyline.jpg');*/
+  background-image: url('/images/IMG_4697.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: #333;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  padding: 0 10px;
+  background-color: #fff;
   height: 50px;
-  width: 100%;
+  width: auto;
+  z-index: 2;
+}
+
+#logo, #logo a {
+  text-decoration: none;
+  font-size: .8em;
+  color: #111;
+  height: 50px;
+  font-family: 'Rock Salt', cursive;
 }
 
 .center {
@@ -28,6 +59,32 @@ nav {
   margin-right: 20px;
 }
 
+.icon {
+  color: white;
+}
+
+.icon-box {
+  color: white;
+  margin-bottom: 60px;
+}
+
+#icons {
+  margin-top: 30%;
+  text-align: center;
+}
+
+#upload, #photo {
+  width: 100px;
+}
+
+#explore {
+  width: 120px;
+}
+
+#photo {
+  margin-bottom: 5px;
+}
+
 nav li {
   list-style-type: none;
 }
@@ -38,6 +95,7 @@ nav li a {
 
 .container {
   margin-top: 70px;
+  z-index: ;
 }
 
 .inner {
@@ -107,11 +165,10 @@ input[type="submit"] {
 }
 
 #map {
-  height: 800px;
   position: absolute;
   width: 100%;
   margin: 0;
-  top: 50px;
+  top: 0;
   bottom: 0;
   left: 0;
 }
