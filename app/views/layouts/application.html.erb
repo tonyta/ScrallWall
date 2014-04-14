@@ -6,15 +6,15 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
-
+  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
-    <div id="logo"><h1><a href="/">ScrallWall</a></h1></div>
+    <!-- <div id="logo">ScrallWall</div> -->
+    <%= image_tag "/images/icon_5276/icon_5276_rev.png", class: "scrallwall-logo", alt: "ScrallWall" %>
   </header>
   <%= yield %>
 </body>
