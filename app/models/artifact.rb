@@ -31,6 +31,10 @@ class Artifact < ActiveRecord::Base
     end
   end
 
+  def neighborhood
+    Neighborhood.surrounding(self.latitude, self.longitude).first
+  end
+
   def canonical_picture
     self.pictures.first
   end
