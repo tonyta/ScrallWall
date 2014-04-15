@@ -37,10 +37,6 @@ class Artifact < ActiveRecord::Base
     Neighborhood.surrounding(self.latitude, self.longitude).first
   end
 
-  def bullshit
-    Neighborhood.within(self.latitude, self.longitude, neighborhood)
-  end
-
   def canonical_picture
     self.pictures.first
   end
