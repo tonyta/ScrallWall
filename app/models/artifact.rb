@@ -23,7 +23,14 @@ class Artifact < ActiveRecord::Base
     } % [latitude, longitude])
   }
 
-
+  scope :contained_within, -> (geom) {
+    where(%{
+      ST_Within(
+        ST_GeomFromText('SRID=4326;POINT(' || artifacts.longitude || ' ' || artifacts.latitude || ')'),
+        '%s'
+      )
+    } % [geom])
+  }
 
   def neighbors(radius=nil)
     if radius
@@ -34,11 +41,7 @@ class Artifact < ActiveRecord::Base
   end
 
   def neighborhood
-    Neighborhood.surrounding(self.latitude, self.longitude).first
-  end
-
-  def bullshit
-    Neighborhood.within(self.latitude, self.longitude, neighborhood)
+    Neighborhood.containing(self.latitude, self.longitude).first
   end
 
   def canonical_picture
