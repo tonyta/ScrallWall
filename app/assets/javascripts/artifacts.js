@@ -1,18 +1,29 @@
-$(document).ready(function() {
+$(document).ready(function(e) {
 
-  var layer = L.mapbox.tileLayer('examples.map-9ijuk24y');
-  var map = L.map('map', {
-      center: [41.8897866, -87.6371788],
-      layers: layer,
-      zoom: 13 // max-zoom is 19
+  var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
+  var myLocation = L.mapbox.featureLayer().addTo(map);
+
+  map.locate();
+
+  map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
+    map.setZoom(13);
+
+    myLocation.setGeoJSON({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [e.latlng.lng, e.latlng.lat]
+        },
+        properties: {
+          'marker-color': '#000',
+          'marker-symbol': 'star-stroked'
+        }
     });
-
-  function getLatLon(e) {
-    console.log('hello');
-  }
+  });
 
   function IconFactory(imageUrl){
-    return L.icon({iconUrl: imageUrl});
+    return L.icon({iconUrl: imageUrl, className: 'artifact'});
   }
 
   function contentBuilder(object) {
