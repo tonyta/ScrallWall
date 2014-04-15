@@ -7,16 +7,6 @@ class Neighborhood < ActiveRecord::Base
     } % [longitude, latitude])
   }
 
-  # scope :within, -> (latitude, longitude, neighborhood) {
-  # where(%{
-  #   ST_Within(
-  #     ST_GeomFromText(
-  #       'SRID=4326;POINT(' || artifacts.longitude || ' ' || artifacts.latitude || ')'
-  #       ),
-  #     (select geom from neighborhoods where pri_neigh = '%s')
-  #   } % [neighborhood])
-  # }
-
   def artifacts
     Artifact.contained_within(self.geom)
   end
