@@ -1,10 +1,8 @@
 <%= javascript_include_tag :artifacts %>
+<%= javascript_include_tag :maps %>
 
-<!-- div#map required for loading gmap -->
 <div id="map"></div>
 
 <script>
-  // passes data from server to JS
   var artifacts = <%= raw @artifacts.map(&:to_map_marker).to_json %>;
-  // console.log(artifacts);
 </script>
