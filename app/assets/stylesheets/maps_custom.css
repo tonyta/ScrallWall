@@ -1,3 +1,15 @@
+.map-page #header {
+  background-image: url('/images/scrallwall.png');
+  background-repeat: no-repeat;
+  background-position: 0 -20px;
+  background-size: 150px;
+  float: right;
+}
+
+.map-page .scrallwall-logo {
+  width: 150px;
+}
+
 /* Mapbox CSS overrides */
 
 .leaflet-popup-content {

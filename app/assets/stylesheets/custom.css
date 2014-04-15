@@ -43,6 +43,9 @@ body {
 }
 
 #header {
+  background-image: url('/images/scrallwall_rev.png');
+  background-repeat: no-repeat;
+  background-position: 0 -30px;
   margin: 0 auto;
   height: 230px;
   width: 960px;
@@ -51,10 +54,9 @@ body {
 }
 
 #logo, #logo a {
-  text-decoration: none;
-  font-size: 2em;
-  color: #000;
-  background-image: url('/images/icon_5276/icon_5276.png');
+  position: absolute;
+  height: inherit;
+  width: inherit;
 }
 
 .scrallwall-logo {
