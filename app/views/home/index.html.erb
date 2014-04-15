@@ -1,23 +1,36 @@
+<%= javascript_include_tag :upload %>
+
 <div class="overlay"></div>
 <div class="bg"></div>
-
 
 <div class="container home">
   <div id="headline">
     <h1>Community-curated<br>beautification</h1>
   </div>
+
+  <div id="uploader">
+    <%= form_for @picture do |f| %>
+      <div class="file-input">
+        <%= f.file_field :image, accept: 'image/jpeg' %>
+        <%= f.submit %>
+      </div>
+      <%= f.text_field :longitude, value: '', type: 'hidden' %>
+      <%= f.text_field :latitude, value: '', type: 'hidden' %><br>
+    <% end %>
+  </div>
+
   <div id="icons">
-    <div class="icon-box">
-      <a href="/pictures/new">
+    <div class="inner">
+      <div class="icon-box">
         <%= image_tag "/images/icon_2633/icon_2633_rev.png", class: "icon", id: "upload" %>
-      </a>
-      <h2>upload</h2>
-    </div>
-    <div class="icon-box">
-      <a href="/artifacts">
-        <%= image_tag "/images/icon_28731/icon_28731_rev.png", class: "icon", id: "explore" %>
-      </a>
-      <h2>explore</h2>
+        <h2>upload</h2>
+      </div>
+      <div class="icon-box">
+        <a href="/artifacts">
+          <%= image_tag "/images/icon_28731/icon_28731_rev.png", class: "icon", id: "explore" %>
+        </a>
+        <h2>explore</h2>
+      </div>
     </div>
   </div>
 

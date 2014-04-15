@@ -12,7 +12,6 @@ body {
 #headline h1 {
   font-size: 4em;
   text-align: center;
-  color: white;
   opacity: 0.8;
 }
 
@@ -69,23 +68,24 @@ nav {
   margin-right: 20px;
 }
 
-.icon {
-  color: white;
-}
-
 .icon-box {
-  color: white;
   display: inline-block;
   margin: 0 20px;
 }
 
 .container.home {
   margin-top: 35%;
+  color: white;
 }
 
 #icons {
+  position: absolute;
+  bottom: 10%;
+  width: 960px;
+}
+
+#icons .inner {
   text-align: center;
-  margin-top: 10%;
 }
 
 #upload, #photo {
@@ -117,7 +117,7 @@ nav li a {
   clear: both;
 }
 
-.inner:after {
+.inner:after, .file-input:after {
   clear: both;
   display: block;
   content: "";
@@ -129,10 +129,29 @@ nav li a {
 }
 
 input[type="file"] {
-  padding: 100px 50px;
+  padding: 10px;
+  float: left;
+}
+
+#uploader input[type="submit"] {
+  float: right;
+  background-color: #8C2F1C;
+  border-radius: 10px;
+  font-family: 'Varela Round', sans-serif;
+  color: white;
+}
+
+#uploader {
+  display: none;
+}
+
+.file-input {
   border: 4px dashed #eee;
   text-align: center;
+  width: 75%;
+  margin: auto;
   clear: both;
+  border-radius: 20px;
 }
 
 #new_picture {

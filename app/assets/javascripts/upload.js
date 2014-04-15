@@ -12,3 +12,10 @@ function getGeo(){
 }
 
 $(document).ready(getGeo)
+
+$(document).ready( function() {
+  $("#upload").on("click", function() {
+    $("#headline").toggle();
+    $("#uploader").toggle();
+  })
+});

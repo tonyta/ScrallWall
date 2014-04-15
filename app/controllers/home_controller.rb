@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @pictures = Picture.all.shuffle
+    @picture = Picture.new
   end
 end
