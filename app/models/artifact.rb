@@ -7,6 +7,9 @@ class Artifact < ActiveRecord::Base
   has_many :artifact_tags
   has_many :tags, through: :artifact_tags
 
+  before_create :update_neighborhood_counter_cache
+  before_save :update_neighborhood_counter_cache
+
   scope :near, -> (latitude, longitude, distance_in_meters = 250) {
     where(%{
       ST_DWithin(
@@ -67,5 +70,13 @@ class Artifact < ActiveRecord::Base
   def self.all_with_picture
     # this could be optimized
     self.all.select { |a| a.pictures.count > 0 }
+  end
+
+  private
+
+  def update_neighborhood_counter_cache
+    if neighborhood = self.neighborhood
+      neighborhood.update_cache
+    end
   end
 end

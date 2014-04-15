@@ -120,7 +120,8 @@ CREATE TABLE neighborhoods (
     sec_neigh character varying(50),
     shape_area numeric,
     shape_len numeric,
-    geom geometry(MultiPolygon,4326)
+    geom geometry(MultiPolygon,4326),
+    artifact_count integer DEFAULT 0 NOT NULL
 );
 
 
@@ -380,3 +381,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140413025954');
 INSERT INTO schema_migrations (version) VALUES ('20140413041539');
 
 INSERT INTO schema_migrations (version) VALUES ('20140415191932');
+
+INSERT INTO schema_migrations (version) VALUES ('20140415193205');

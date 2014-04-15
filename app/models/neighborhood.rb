@@ -14,4 +14,9 @@ class Neighborhood < ActiveRecord::Base
   def name
     self.pri_neigh
   end
+
+  def update_cache
+    self.artifact_count = self.artifacts.length
+    self.save!
+  end
 end
