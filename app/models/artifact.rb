@@ -11,22 +11,24 @@ class Artifact < ActiveRecord::Base
     where(%{
       ST_DWithin(
         ST_GeographyFromText(
-          'SRID=4326;POINT(' || artifacts.latitude || ' ' || artifacts.longitude || ')'
+          'SRID=4326;POINT(' || artifacts.longitude || ' ' || artifacts.latitude || ')'
         ),
         ST_GeographyFromText('SRID=4326;POINT(%f %f)'),
         %d
       )
-    } % [latitude, longitude, distance_in_meters])
+    } % [longitude, latitude, distance_in_meters])
     .order(%{
-      'SRID=4326;POINT(' || artifacts.latitude || ' ' || artifacts.longitude || ')' <->
+      'SRID=4326;POINT(' || artifacts.longitude || ' ' || artifacts.latitude || ')' <->
       'SRID=4326;POINT(%f %f)'
-    } % [latitude, longitude])
+    } % [longitude, latitude])
   }
 
   scope :contained_within, -> (geom) {
     where(%{
       ST_Within(
-        ST_GeomFromText('SRID=4326;POINT(' || artifacts.longitude || ' ' || artifacts.latitude || ')'),
+        ST_GeomFromText(
+          'SRID=4326;POINT(' || artifacts.longitude || ' ' || artifacts.latitude || ')'
+        ),
         '%s'
       )
     } % [geom])
