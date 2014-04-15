@@ -38,4 +38,14 @@ class Artifact < ActiveRecord::Base
   def picture_urls
     self.pictures.map {|p| p.image.preview.url }
   end
+
+  def to_map_marker
+    image = self.canonical_picture.image
+    { lat: self.latitude,
+      lng: self.longitude,
+      map_thumb: image.map_thumb.url,
+      info_thumb: image.thumb.url,
+      show_url: "/artifacts/#{self.id}"
+    }
+  end
 end
