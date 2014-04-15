@@ -19,4 +19,8 @@ class Neighborhood < ActiveRecord::Base
     self.artifact_count = self.artifacts.length
     self.save!
   end
+
+  def self.all_with_artifacts
+    self.where('artifact_count > 0')
+  end
 end

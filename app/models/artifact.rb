@@ -46,7 +46,7 @@ class Artifact < ActiveRecord::Base
   end
 
   def neighborhood
-    Neighborhood.containing(self.latitude, self.longitude).first
+    Neighborhood.containing(self.latitude, self.longitude).first if self.latitude && self.longitude
   end
 
   def canonical_picture
