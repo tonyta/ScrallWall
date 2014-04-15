@@ -7,7 +7,7 @@ $(document).ready(function(e) {
 
   map.on('locationfound', function(e) {
     map.fitBounds(e.bounds);
-    map.setZoom(13);
+    map.setZoom(15);
 
     myLocation.setGeoJSON({
         type: "Feature",

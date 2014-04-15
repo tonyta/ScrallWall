@@ -1,13 +1,24 @@
-.map-page #header {
-  background-image: url('/images/scrallwall.png');
+.map-page #logo {
+  background-image: url('/images/scrallwall_fill.png');
   background-repeat: no-repeat;
-  background-position: 0 -20px;
+  background-position: 90% 0;
   background-size: 150px;
-  float: right;
+  position: absolute;
+  right: 0;
+  width: 150px;
+}
+
+.map-page #header {
+  background-image: none;
+  height: 230px;
+  width: 100%;
+  position: absolute;
+  top: -30px;
+  right: -20px;
 }
 
 .map-page .scrallwall-logo {
-  width: 150px;
+  width: inherit;
 }
 
 /* Mapbox CSS overrides */

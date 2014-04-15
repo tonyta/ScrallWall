@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>ProjectBernies</title>
+  <meta name="viewport" content="width=device-width" />
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
@@ -16,8 +17,9 @@
 </head>
 <body>
   <div id="header">
-    <!-- <div id="logo">ScrallWall</div> -->
-    <a href="/" title="ScrallWall" id="logo"></a>
+    <div id="logo">
+      <a href="/" title="ScrallWall" id="logo"></a>
+    </div>
   </div>
   <%= yield %>
 </body>

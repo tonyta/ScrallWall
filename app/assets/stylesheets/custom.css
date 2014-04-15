@@ -5,8 +5,21 @@ body {
   margin: 0 auto;
 }
 
+#header {
+  background-image: url('/images/scrallwall_rev.png');
+  background-repeat: no-repeat;
+  background-position: 50% -30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 230px;
+  width: 100%;
+  z-index: 2;
+}
+
 .container {
   width: inherit;
+  margin-top: 30%;
 }
 
 #headline h1 {
@@ -42,16 +55,6 @@ body {
   z-index: -1;
 }
 
-#header {
-  background-image: url('/images/scrallwall_rev.png');
-  background-repeat: no-repeat;
-  background-position: 0 -30px;
-  margin: 0 auto;
-  height: 230px;
-  width: 960px;
-  position: relative;
-  z-index: 2;
-}
 
 #logo, #logo a {
   position: absolute;
@@ -113,10 +116,6 @@ nav li a {
   text-decoration: none;
 }
 
-.container {
-  margin-top: 100px;
-}
-
 .inner {
   display: block;
   clear: both;
@@ -150,10 +149,7 @@ input[type="file"] {
 
 #uploader .submit, #uploader .cancel {
   text-align: center;
-  background-color: white;
   font-family: 'Varela Round', sans-serif;
-  color: #8C2F1C;
-  min-width: 100px;
 }
 
 #uploader #buttons {
@@ -164,8 +160,14 @@ input[type="file"] {
   display: none;
 }
 
+#uploader p {
+  height: 60px;
+  background-image: url('/images/dk_separator_01.png');
+  background-position: 50% 50px;
+  background-repeat: no-repeat;
+}
+
 .file-input {
-  border: 4px dashed #eee;
   text-align: center;
   width: 75%;
   margin: auto;
@@ -179,9 +181,15 @@ input[type="file"] {
 
 .submit, .cancel {
   -webkit-appearance: none;
-  font-size: 1em;
+  background: white;
+  width: 100px;
+  color: #333;
+  font-size: 1.25em;
+  letter-spacing: normal;
+  font-weight: bold;
   border: none;
-  padding: 4px 8px;
+  cursor: pointer;
+  padding: 2px 4px;
   margin: 10px;
 }
 
