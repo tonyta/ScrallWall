@@ -23,6 +23,8 @@ class Artifact < ActiveRecord::Base
     } % [latitude, longitude])
   }
 
+
+
   def neighbors(radius=nil)
     if radius
       Artifact.near(self.latitude, self.longitude, radius)
@@ -33,6 +35,10 @@ class Artifact < ActiveRecord::Base
 
   def neighborhood
     Neighborhood.surrounding(self.latitude, self.longitude).first
+  end
+
+  def bullshit
+    Neighborhood.within(self.latitude, self.longitude, neighborhood)
   end
 
   def canonical_picture
