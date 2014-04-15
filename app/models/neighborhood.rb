@@ -23,4 +23,10 @@ class Neighborhood < ActiveRecord::Base
   def self.all_with_artifacts
     self.where('artifact_count > 0')
   end
+
+  def to_geojson
+    ActiveRecord::Base.connection.execute(%{
+      select ST_AsText(geom) from neighborhoods where gid = %i;
+    } % [self.gid]).values
+  end
 end
