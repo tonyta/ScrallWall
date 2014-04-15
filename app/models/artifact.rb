@@ -48,4 +48,9 @@ class Artifact < ActiveRecord::Base
       show_url: "/artifacts/#{self.id}"
     }
   end
+
+  def self.all_with_picture
+    # this could be optimized
+    self.all.select { |a| a.pictures.count > 0 }
+  end
 end

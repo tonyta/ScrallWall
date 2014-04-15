@@ -1,6 +1,6 @@
 class ArtifactsController < ApplicationController
   def index
-    @artifacts = Artifact.all
+    @artifacts = Artifact.all_with_picture
   end
 
   def explore
