@@ -15,6 +15,11 @@ body {
   opacity: 0.8;
 }
 
+#headline, #uploader {
+  height: 200px;
+  margin-bottom: 50px;
+}
+
 .bg, .overlay {
   position: fixed;
   width: 100%;
@@ -39,7 +44,7 @@ body {
 
 #header {
   margin: 0 auto;
-  height: 50px;
+  height: 230px;
   width: 960px;
   position: relative;
   z-index: 2;
@@ -74,14 +79,11 @@ nav {
   margin: 0 20px;
 }
 
-.container.home {
-  margin-top: 35%;
+.home {
   color: white;
 }
 
 #icons {
-  position: absolute;
-  bottom: 10%;
   width: 960px;
 }
 
@@ -110,7 +112,7 @@ nav li a {
 }
 
 .container {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 
 .inner {
@@ -130,16 +132,30 @@ nav li a {
 }
 
 input[type="file"] {
-  padding: 10px;
-  float: left;
+  opacity: 0;
+  height: 60px;
+  width: 100%;
+  margin-top: -60px;
+  display: block;
 }
 
-#uploader input[type="submit"] {
-  float: right;
-  background-color: #8C2F1C;
-  border-radius: 10px;
+.file-input .text {
+  font-size: 2em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#uploader .submit, #uploader .cancel {
+  text-align: center;
+  background-color: white;
   font-family: 'Varela Round', sans-serif;
-  color: white;
+  color: #8C2F1C;
+  min-width: 100px;
+}
+
+#uploader #buttons {
+  margin-bottom: 20px;
 }
 
 #uploader {
@@ -152,7 +168,6 @@ input[type="file"] {
   width: 75%;
   margin: auto;
   clear: both;
-  border-radius: 20px;
 }
 
 #new_picture {
@@ -160,11 +175,11 @@ input[type="file"] {
   text-align: center;
 }
 
-input[type="submit"] {
+.submit, .cancel {
   -webkit-appearance: none;
   font-size: 1em;
   border: none;
-  padding: 10px 15px;
+  padding: 4px 8px;
   margin: 10px;
 }
 
