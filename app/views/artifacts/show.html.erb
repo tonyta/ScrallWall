@@ -1,7 +1,7 @@
 
 <div class="container">
+  <%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %>
   <% @artifact.picture_urls.each do |pic_url| %>
     <%= image_tag pic_url, class: "preview-pic"  %>
-    <%= @neighborhood.inspect %>
   <% end %>
 </div>

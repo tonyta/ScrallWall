@@ -1,6 +1,8 @@
 ProjectBernies::Application.routes.draw do
   root 'home#index'
 
+  resources :neighborhoods
+
   resources :pictures, only: [:new, :create, :update]
 
   resources :artifacts , only:[:new, :create, :show, :index] do
