@@ -21,10 +21,8 @@ $(document).ready(function() {
             "<a href='" + object.show_url + "'>Content to Click</a>"
   }
 
-  // L.marker({lat:41.8897866, lon:-87.6371788}, {icon: myIcon, riseOnHover: true} ).addTo(map);
-
   $.each(artifacts, function(i, object){
-    L.marker({lat: object.lat, lon: object.lon},
+    L.marker({lat: object.lat, lng: object.lng},
              {icon: new IconFactory(object.map_thumb), riseOnHover: true}
             ).addTo(map).bindPopup(contentBuilder(object));
   });
