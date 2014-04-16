@@ -15,4 +15,27 @@ class ArtifactsController < ApplicationController
   def show
     @artifact = Artifact.find(params[:id])
   end
+
+  def update
+  end
+
+  def upvote
+    @artifact = Artifact.find(params[:artifact_id])
+    @artifact.votes += 1
+    @artifact.save
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
+
+  def downvote
+    @artifact = Artifact.find(params[:artifact_id])
+    @artifact.votes -= 1
+    @artifact.save
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
 end

@@ -84,7 +84,10 @@ CREATE TABLE artifacts (
     latitude numeric(9,6),
     longitude numeric(9,6),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    votes integer DEFAULT 0,
+    is_reported boolean DEFAULT false,
+    open311_token character varying(255)
 );
 
 
@@ -383,3 +386,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140413041539');
 INSERT INTO schema_migrations (version) VALUES ('20140415191932');
 
 INSERT INTO schema_migrations (version) VALUES ('20140415193205');
+
+INSERT INTO schema_migrations (version) VALUES ('20140415194818');

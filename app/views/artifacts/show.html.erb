@@ -1,7 +1,15 @@
-
 <div class="container">
+
   <%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %>
+
+  <div id="votes">
+    <%= link_to "Upvote", artifact_upvote_path(@artifact), remote: true, method: "put" %>
+    <%= link_to "Downvote", artifact_downvote_path(@artifact), remote: true, method: "put" %>
+    <span id="counter"><%= @artifact.votes %></span>
+  </div>
+
   <% @artifact.picture_urls.each do |pic_url| %>
     <%= image_tag pic_url, class: "preview-pic"  %>
   <% end %>
+
 </div>
