@@ -7,9 +7,7 @@
 <div id="votes">
   <%= link_to "Upvote", artifact_upvote_path(@artifact), remote: true, method: "put" %>
   <%= link_to "Downvote", artifact_downvote_path(@artifact), remote: true, method: "put" %>
-
   <div id="counter"><%= @artifact.votes %></div>
-
 </div>
 
 
