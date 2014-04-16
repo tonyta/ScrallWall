@@ -1,24 +1,11 @@
 <%= javascript_include_tag :upload %>
 
 <div class="container home">
-  <div id="headline">
+  <div id="headings">
     <h1>Community-curated<br>beautification</h1>
   </div>
 
-  <div id="uploader">
-    <%= form_for @picture do |f| %>
-      <div class="file-input">
-        <p class="text">click or drag here</p>
-        <%= f.file_field :image, accept: 'image/jpeg' %>
-        <div id="buttons">
-           <%= button_tag "cancel", type: "button", class: "cancel" %>
-          <%= f.submit "save", class: "submit" %>
-        </div>
-      </div>
-      <%= f.text_field :longitude, value: '', type: 'hidden' %>
-      <%= f.text_field :latitude, value: '', type: 'hidden' %><br>
-    <% end %>
-  </div>
+  <%= render "layouts/uploader" %>
 
   <div id="icons">
     <div class="inner">

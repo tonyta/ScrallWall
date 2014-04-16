@@ -29,7 +29,8 @@ body {
 
 #header {
   background-image: none;
-  height: 230px;
+  height: 120px;
+  overflow: visible;
   width: inherit;
   position: absolute;
   top: -30px;
@@ -38,12 +39,12 @@ body {
 
 #logo {
   width: 150px;
-  height: inherit;
+  height: 230px;
   margin: auto;
 }
 
 #logo a {
-  background-image: url('/images/scrallwall_rev.png');
+  background-image: url('/images/scrallwall_rev_shadowed.png');
   background-repeat: no-repeat;
   background-position: 90% 0;
   background-size: 150px;
@@ -99,12 +100,12 @@ h2 {
   margin-bottom: 30px;
 }
 
-#headline h1 {
+#headings h1 {
   font-size: 4em;
   text-align: center;
 }
 
-#headline, #uploader {
+#headings, #uploader {
   height: 200px;
   margin-bottom: 50px;
 }

@@ -1,7 +1,15 @@
+<%= javascript_include_tag :upload %>
+
 <div class="container">
-  <h1 class="center">Art is in the eye of the beholder.</h1>
-  <h2 class="center">Explore, vote, upload, report.</h2>
-  <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
+  <div id="headings">
+    <h1 class="center">The world's lamest headline.</h1>
+    <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
+    <h2 class="center">Explore, vote, upload, report.</h2>
+  </div>
+
+
+  <%= render "layouts/uploader" %>
+
   <div id="thumbs-box">
       <% @artifacts.each do |art| %>
       <div id="thumb-box">

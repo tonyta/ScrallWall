@@ -1,27 +1,21 @@
-.map-page #logo {
-  background-image: url('/images/scrallwall_fill.png');
-  background-repeat: no-repeat;
-  background-position: 90% 0;
-  background-size: 150px;
-  position: absolute;
-  right: 0;
-  width: 150px;
+.map-page #map {
+  z-index: -3;
+  margin-top: 70px;
 }
 
-.map-page #header {
-  background-image: none;
-  height: 230px;
-  width: 150px;
-  position: absolute;
-  top: -30px;
-  right: 0;
+.map-page .overlay {
+  height: 70px;
 }
 
-.map-page .scrallwall-logo {
-  width: inherit;
+.map-page .bg {
+  display: none;
 }
 
 /* Mapbox CSS overrides */
+
+.map-page .leaflet-tile-pane {
+  margin-top: -60px;
+}
 
 .leaflet-popup-content {
   width: 160px;

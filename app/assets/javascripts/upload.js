@@ -16,11 +16,11 @@ $(document).ready(getGeo)
 $(document).ready( function() {
 
   function toggleUploader() {
-    $("#headline").toggle();
+    $("#headings").toggle();
     $("#uploader").toggle();
   }
 
-  $("#upload").on("click", function() {
+  $("#upload, #upload-menu-item").on("click", function() {
     toggleUploader()
   });
 
