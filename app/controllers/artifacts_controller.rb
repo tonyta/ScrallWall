@@ -17,12 +17,6 @@ class ArtifactsController < ApplicationController
   end
 
   def update
-    # @artifact = Artifact.find(params[:id])
-    # if params[:vote] == 'upvote'
-    #   artifact.votes += 1
-    # elsif params[:vote] == 'downvote'
-    #   artifact.votes -= 1
-    # end
   end
 
   def upvote
