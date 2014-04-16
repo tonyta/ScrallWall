@@ -108,6 +108,43 @@ ALTER SEQUENCE artifacts_id_seq OWNED BY artifacts.id;
 
 
 --
+-- Name: neighborhoods; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE neighborhoods (
+    gid integer NOT NULL,
+    objectid numeric(10,0),
+    pri_neigh_ character varying(3),
+    pri_neigh character varying(50),
+    sec_neigh_ character varying(3),
+    sec_neigh character varying(50),
+    shape_area numeric,
+    shape_len numeric,
+    geom geometry(MultiPolygon,4326),
+    artifact_count integer DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: neighborhoods_gid_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE neighborhoods_gid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: neighborhoods_gid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE neighborhoods_gid_seq OWNED BY neighborhoods.gid;
+
+
+--
 -- Name: pictures; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -227,6 +264,13 @@ ALTER TABLE ONLY artifacts ALTER COLUMN id SET DEFAULT nextval('artifacts_id_seq
 
 
 --
+-- Name: gid; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY neighborhoods ALTER COLUMN gid SET DEFAULT nextval('neighborhoods_gid_seq'::regclass);
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -264,6 +308,14 @@ ALTER TABLE ONLY artifacts
 
 
 --
+-- Name: neighborhoods_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY neighborhoods
+    ADD CONSTRAINT neighborhoods_pkey PRIMARY KEY (gid);
+
+
+--
 -- Name: pictures_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -291,7 +343,14 @@ ALTER TABLE ONLY tags
 -- Name: index_on_artifacts_location; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE INDEX index_on_artifacts_location ON artifacts USING gist (st_geographyfromtext((((('SRID=4326;POINT('::text || latitude) || ' '::text) || longitude) || ')'::text)));
+CREATE INDEX index_on_artifacts_location ON artifacts USING gist (st_geographyfromtext((((('SRID=4326;POINT('::text || longitude) || ' '::text) || latitude) || ')'::text)));
+
+
+--
+-- Name: neighborhoods_geom_gist; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX neighborhoods_geom_gist ON neighborhoods USING gist (geom);
 
 
 --
@@ -320,3 +379,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140410022045');
 INSERT INTO schema_migrations (version) VALUES ('20140413025954');
 
 INSERT INTO schema_migrations (version) VALUES ('20140413041539');
+
+INSERT INTO schema_migrations (version) VALUES ('20140415191932');
+
+INSERT INTO schema_migrations (version) VALUES ('20140415193205');
