@@ -1,10 +1,7 @@
-.home-page #header {
-  
-}
-
 .home-page #logo {
   width: 200px;
   height: 260px;
+  margin-top: -10px;
 }
 
 .home-page #logo a {

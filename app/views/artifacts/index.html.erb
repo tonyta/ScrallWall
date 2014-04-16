@@ -1,10 +1,21 @@
-<%= javascript_include_tag :artifacts %>
+<%= javascript_include_tag :upload %>
 
-<div id="map"></div>
+<div class="container">
+  <div id="headings">
+    <h1 class="center">The world's lamest headline.</h1>
+    <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
+    <h2 class="center">Explore, vote, upload, report.</h2>
+  </div>
 
-<script>
-  var artifacts = <%= raw @artifacts.map(&:to_map_marker).to_json %>;
-  $(document).ready(function(){
-    $('body').addClass('map-page');
-  })
-</script>
+
+  <%= render "layouts/uploader" %>
+
+  <div id="thumbs-box">
+      <% @artifacts.each do |art| %>
+      <div id="thumb-box">
+        <div class="thumb"><%= image_tag art.canonical_picture.image.preview.url %></div>
+        <div class="info"><%= art.pictures.count %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

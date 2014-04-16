@@ -12,7 +12,7 @@ function buildNeighborNode(picId, neighbor) {
   var href = "/artifacts/" + neighbor.id + "/pictures/" + picId;
   var url = neighbor.pictureUrl
 
-  node.attr('href', href);
+  node.find('a').attr('href', href);
   node.find('img').attr('src', url);
   return node;
 }

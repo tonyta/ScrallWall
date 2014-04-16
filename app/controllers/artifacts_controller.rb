@@ -1,9 +1,12 @@
 class ArtifactsController < ApplicationController
   def index
+    @picture = Picture.new
     @artifacts = Artifact.all_with_picture
   end
 
   def explore
+    @picture = Picture.new
+    @artifacts = Artifact.all
   end
 
   def new

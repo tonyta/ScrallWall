@@ -16,13 +16,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="header">
-    <div id="logo">
-      <a href="/" title="ScrallWall" id="logo"></a>
-    </div>
-  </div>
   <div class="overlay"></div>
   <div class="bg"></div>
+  <%= render "layouts/header" %>
   <%= yield %>
 </body>
 </html>
