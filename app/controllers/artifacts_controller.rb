@@ -4,6 +4,7 @@ class ArtifactsController < ApplicationController
   end
 
   def explore
+    @artifacts = Artifact.all
   end
 
   def new

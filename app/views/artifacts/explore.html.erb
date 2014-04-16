@@ -1,0 +1,10 @@
+<%= javascript_include_tag :artifacts %>
+
+<div id="map"></div>
+
+<script>
+  var artifacts = <%= raw @artifacts.map(&:to_map_marker).to_json %>;
+  $(document).ready(function(){
+    $('body').addClass('map-page');
+  })
+</script>

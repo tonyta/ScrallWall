@@ -28,7 +28,7 @@
 }
 
 #mini-map {
-  width: 400px;
+  width: 100%;
   height: 300px;
   border-right: 4px solid white;
   border-bottom: 4px solid white;
