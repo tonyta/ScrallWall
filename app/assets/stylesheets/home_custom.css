@@ -1,0 +1,20 @@
+.home-page #header {
+  
+}
+
+.home-page #logo {
+  width: 200px;
+  height: 260px;
+}
+
+.home-page #logo a {
+  background-size: 200px;
+}
+
+.home-page .container {
+  margin-top: 30%;
+}
+
+.home-page .inner {
+  width: 100%;
+}

@@ -1,30 +1,33 @@
 <%= javascript_include_tag :pictures %>
 
-<div class="container">
+<div id="art-create" class="container">
+  <h1 class="center">Something new?</h1>
+  <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
   <div class="inner">
     <div id="user-image">
       <%= image_tag @picture.image.preview.url %>
     </div>
+    <p id="map-note" class="center">Adjust your position for more accuracy or to find a match.</p>
     <div id="mini-map"></div>
   </div>
-
+  <h2>Add your photo to art works already found. Or make a fresh contribution.</h2>
   <div id='neighbors' data-picture-id='<%= @picture.id %>'>
     <a data-method='patch' class='neighbor-thumb template' href='' rel='nofollow'>
       <img alt='' src=''>
     </a>
   </div>
-
+  
   <div>
     <%= form_for @picture, method: :patch do |f| %>
       <%= f.text_field :latitude, value: '', type: 'hidden' %>
       <%= f.text_field :longitude, value: '', type: 'hidden' %>
-      <%= f.submit 'create new artifact' %>
+      <%= image_tag '/images/icon_21727/icon_21727_rev.png', class: "plus-icon" %>
+      <%= f.submit 'add new', class: "simple-icon-button" %>
     <% end %>
   </div>
 </div>
 
 <script>
-  // passes data from server to JS
   var latitude = <%= raw @latitude.to_json %>;
   var longitude = <%= raw @longitude.to_json %>;
 </script>

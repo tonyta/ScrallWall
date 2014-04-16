@@ -28,9 +28,11 @@
 }
 
 #mini-map {
-  width: 460px;
-  height: 340px;
-  float: right;
+  width: 400px;
+  height: 300px;
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+  border-left: 4px solid white;
 }
 
 .leaflet-marker-pane img.artifact {

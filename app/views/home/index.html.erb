@@ -1,8 +1,5 @@
 <%= javascript_include_tag :upload %>
 
-<div class="overlay"></div>
-<div class="bg"></div>
-
 <div class="container home">
   <div id="headline">
     <h1>Community-curated<br>beautification</h1>
@@ -39,4 +36,9 @@
   </div>
 </div>
 
+<script>
+  $(document).ready(function(){ 
+    $('body').addClass('home-page'); 
+  })
+</script>
 

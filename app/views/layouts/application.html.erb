@@ -21,15 +21,9 @@
       <a href="/" title="ScrallWall" id="logo"></a>
     </div>
   </div>
+  <div class="overlay"></div>
+  <div class="bg"></div>
   <%= yield %>
 </body>
 </html>
-
-<script>
-  // passes data from server to JS
-  var latitude = <%= raw @latitude.to_json %>;
-  console.log(latitude);
-  var longitude = <%= raw @longitude.to_json %>;
-  console.log(longitude);
-</script>
 
