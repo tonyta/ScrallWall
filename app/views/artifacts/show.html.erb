@@ -1,15 +1,25 @@
 <div class="container">
+  <div id="info-bar">
+    <div id="neighborhood" class="left">
+      <h2><%= image_tag "/images/marker_rev.png", class: "small-icon" %><%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %></h2>
+    </div>
 
-  <%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %>
-
-  <div id="votes">
-    <%= link_to "Upvote", artifact_upvote_path(@artifact), remote: true, method: "put" %>
-    <%= link_to "Downvote", artifact_downvote_path(@artifact), remote: true, method: "put" %>
-    <span id="counter"><%= @artifact.votes %></span>
+    <div id="votes" class="right">
+      <%= image_tag "/images/broken_heart_rev.png", class: "small-icon" %><%= link_to "", artifact_upvote_path(@artifact), remote: true, method: "put" %>
+      <span id="counter"><%= @artifact.votes %></span>
+      <%= image_tag "/images/heart_rev.png", class: "small-icon" %><%= link_to "", artifact_downvote_path(@artifact), remote: true, method: "put" %>
+    </div>
   </div>
 
-  <% @artifact.picture_urls.each do |pic_url| %>
-    <%= image_tag pic_url, class: "preview-pic"  %>
-  <% end %>
+  <div id="images" class="clear-both">
+    <div id="mini-map" class="left one-third"></div>
 
+    <div id="thumbs-box" class="right two-thirds">
+      <% @artifact.picture_urls.each do |pic| %>
+      <div class="thumb-box">
+        <div><%= image_tag pic %></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
