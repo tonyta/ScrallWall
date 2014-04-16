@@ -221,6 +221,10 @@ input[type="file"] {
   font-family: 'Varela Round', sans-serif;
 }
 
+#uploader .submit {
+  opacity: 0.3;
+}
+
 #uploader #buttons {
   margin-top: 10px;
   margin-bottom: 20px;

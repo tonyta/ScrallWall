@@ -15,6 +15,7 @@ $(document).ready(getGeo)
 
 $(document).ready( function() {
 
+
   function toggleUploader() {
     $("#headings").toggle();
     $("#uploader").toggle();
@@ -35,11 +36,16 @@ $(document).ready( function() {
   $(fileInput).change( function() {
     var parsedString = parseFileName(fileInput.val());
     $(".file-input .text").html(parsedString);
+
+    if (fileInput.val() !== "click or drag here") {
+      $(".file-input .submit").removeAttr('disabled').css('opacity','1');
+    }
   })
 
   $('.cancel').on('click', function(){
     fileInput.val("");
     $(".file-input .text").html("click or drag here");
+    $(".file-input .submit").css('opacity','.3').attr('disabled','disabled');
     toggleUploader();
   })
 });
