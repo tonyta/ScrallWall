@@ -50,7 +50,7 @@ $(document).ready(function() {
             });
 
   var marker = L.marker(new L.LatLng(lat, lng), {
-                 draggable: true
+                 draggable: true,
                });
 
   marker.addTo(map);

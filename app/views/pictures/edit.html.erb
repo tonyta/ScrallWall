@@ -24,7 +24,7 @@
 </div>
 
 <script>
-  // passes data from server to JS
+  var picture = <%= raw @picture.to_json %>
   var latitude = <%= raw @latitude.to_json %>;
   var longitude = <%= raw @longitude.to_json %>;
 </script>
