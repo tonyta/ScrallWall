@@ -1,3 +1,4 @@
+<%= javascript_include_tag :votes %>
 
 <div class="container">
   <%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %>
@@ -5,3 +6,13 @@
     <%= image_tag pic_url, class: "preview-pic"  %>
   <% end %>
 </div>
+
+
+<div id="votes" >
+  <%= link_to "Upvote", artifact_upvote_path(@artifact), remote: true, method: "put" %>
+  <%= link_to "Downvote", artifact_downvote_path(@artifact), remote: true, method: "put" %>
+
+  <%= @artifact.votes %>
+</div>
+
+
