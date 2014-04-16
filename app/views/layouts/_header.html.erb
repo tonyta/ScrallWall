@@ -2,9 +2,12 @@
   <div id="logo">
     <a href="/" title="ScrallWall" id="logo"></a>
   </div>
-  <ul class="menu">
+  <ul class="menu left">
+    <li id="upload-menu-item">upload</li>
     <li><a href="#">About</a></li>
-    <li></li>
+  </ul>
+  <ul class="menu right">
     <li><%= link_to "Art view", artifacts_path %></li>
+    <li><%= link_to "Explore", explore_artifacts_path %></li>
   </ul>
 </div>

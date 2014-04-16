@@ -11,10 +11,10 @@
 .map-page #header {
   background-image: none;
   height: 230px;
-  width: 100%;
+  width: 150px;
   position: absolute;
   top: -30px;
-  right: -20px;
+  right: 0;
 }
 
 .map-page .scrallwall-logo {
