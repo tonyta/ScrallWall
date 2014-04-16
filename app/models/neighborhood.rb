@@ -25,8 +25,17 @@ class Neighborhood < ActiveRecord::Base
   end
 
   def to_geojson
-    ActiveRecord::Base.connection.execute(%{
+    multipolygon = ActiveRecord::Base.connection.execute(%{
       select ST_AsText(geom) from neighborhoods where gid = %i;
-    } % [self.gid]).values
+    } % [self.gid]).values.flatten.pop
+    parse_to_geojson(multipolygon)
+  end
+
+  private
+
+  def parse_to_geojson(multipolygon)
+    multipolygon.match(/\(([\d .\-,]*)\)/)[1].split(',').map{|s| s.split(' ').reverse.map(&:to_f) }.to_json
   end
 end
+
+# Neighborhood.find_by_pri_neigh('Wrigleyville').to_geojson.match(/\(([\d .\-,]*)\)/)[1].split(',').map{|s| s.split(' ').reverse.map(&:to_f) }.to_json
