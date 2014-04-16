@@ -27,6 +27,11 @@ body {
   right: 0;
 }
 
+.clear-both {
+  clear: both;
+}
+
+
 #header {
   background-image: none;
   height: 120px;
@@ -196,6 +201,11 @@ nav li a {
   float:left;
 }
 
+.small-icon {
+  width: 30px;
+  padding: 0 10px;
+}
+
 .big-icon {
   font-size: 4em;
   text-align: center;
@@ -291,13 +301,37 @@ input[type="file"] {
 }
 
 #user-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 0;
   border-right: 4px solid white;
   border-top: 4px solid white;
   border-left: 4px solid white;
+}
+
+#user-image, #canonical {
+  height: auto;
+  margin-bottom: 0;
   overflow: hidden;
+}
+
+.half {
+  width: 45%;
+}
+
+.one-third {
+  width: 31%;
+}
+
+.two-thirds {
+  width: 64%;
+}
+
+#canonical {
+  border: 4px solid white;
+}
+
+#canonical img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 #user-image img {
@@ -307,7 +341,6 @@ input[type="file"] {
 
 #neighbors {
   float: right;
-  width: 50%;
 }
 
 .neighbor-thumb.template {
@@ -339,10 +372,6 @@ input[type="file"] {
 
 }
 
-.tagger {
-  font-family: 'Rock Salt', cursive;
-}
-
 #map {
   position: absolute;
   width: 100%;
@@ -350,6 +379,49 @@ input[type="file"] {
   top: 0;
   bottom: 0;
   left: 0;
+}
+
+/************************/
+/*    artifacts#show    */
+/************************/
+
+#counter {
+  font-size: 24px;
+}
+
+#info-bar {
+  display: block;
+  clear: both;
+  height: 60px;
+  margin-bottom: 40px;
+  border-bottom: 4px solid white;
+}
+
+#images {
+  margin-bottom: 20px;
+}
+
+#images .thumb-box {
+  margin-bottom: 20px;
+}
+
+.thumb-box img {
+  width: 100%;
+  display: block;
+}
+
+#images #mini-map {
+  background: #ddd;
+  border: 4px solid white;
+}
+
+#images #thumbs-box {
+  -moz-column-count: 1;
+  -webkit-column-count: 1;
+}
+
+#images .thumb-box {
+  display: block;
 }
 
 /************************/
@@ -364,7 +436,11 @@ input[type="file"] {
    padding-bottom: 40px;
 }
 
-#thumb-box {
+#thumbs-box .thumb-box:first-child {
+  margin-top: 3px;
+}
+
+.thumb-box {
   border: 4px solid white;
   margin-bottom: 25px;
   display: inline-block;
@@ -376,7 +452,17 @@ input[type="file"] {
   width: 100%;
 }
 
-#thumb-box .info {
+.thumb-box .info {
   background-color: #59424A;
   padding: 10px;
+}
+
+/************************/
+/*      clearfixes      */
+/************************/
+
+#images:after {
+  display: block;
+  content: "";
+  clear: both;
 }
