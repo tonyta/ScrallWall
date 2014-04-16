@@ -28,6 +28,13 @@
       <% end %>
     </div>
   </div>
+
+  <% if @artifact.is_reported %>
+    <p>This so called piece of "art" has been flagged for removal with the City of Chicago.</p>
+    <p>Service Request ID: #<%= @artifact.request_status.pop["service_request_id"]%></p>
+    <p>Request Status: <%= @artifact.request_status.pop["status"].capitalize %></p>
+
+  <% end %>
 </div>
 
 <script>

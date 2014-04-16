@@ -98,14 +98,14 @@ class Artifact < ActiveRecord::Base
   end
 
   def request_status
-    uri = URI.parse('http://test311request.cityofchicago.org/open311/v2/requests/#{self.open311_token}.json')
+    uri = URI.parse("http://test311request.cityofchicago.org/open311/v2/requests/#{self.open311_token}.json")
 
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
 
     response = http.request(request)
     msg = response.body
-
+    #binding.pry
     JSON.parse(msg)
   end
 

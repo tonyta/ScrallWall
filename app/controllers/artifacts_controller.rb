@@ -23,28 +23,32 @@ class ArtifactsController < ApplicationController
 
   def upvote
     @artifact = Artifact.find(params[:artifact_id])
-    @artifact.votes += 1
-    @artifact.save
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
+    unless @artifact.is_reported
+      @artifact.votes += 1
+      @artifact.save
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     end
   end
 
   def downvote
     @artifact = Artifact.find(params[:artifact_id])
-    @artifact.votes -= 1
-    @artifact.save
+    unless @artifact.is_reported
+      @artifact.votes -= 1
+      @artifact.save
 
-    if @artifact.votes.to_i <= -10 && @artifact.is_reported == false
-      @artifact.open311_token = @artifact.post_311_request
-      @artifact.is_reported = true
-      @artifact.save!
-    end
+      if @artifact.votes.to_i <= -10 && @artifact.is_reported == false
+        @artifact.open311_token = @artifact.post_311_request
+        @artifact.is_reported = true
+        @artifact.save!
+      end
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     end
   end
 end
