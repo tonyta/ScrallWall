@@ -5,6 +5,7 @@ class ArtifactsController < ApplicationController
   end
 
   def explore
+    @picture = Picture.new
     @artifacts = Artifact.all
   end
 

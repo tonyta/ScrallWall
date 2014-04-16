@@ -1,7 +1,8 @@
 <%= javascript_include_tag :artifacts %>
+<%= javascript_include_tag :upload %>
 
 <div id="map"></div>
-
+<%= render "layouts/uploader" %>
 <script>
   var artifacts = <%= raw @artifacts.map(&:to_map_marker).to_json %>;
   $(document).ready(function(){

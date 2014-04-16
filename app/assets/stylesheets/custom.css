@@ -106,7 +106,7 @@ h2 {
 }
 
 #headings, #uploader {
-  height: 200px;
+  height: 180px;
   margin-bottom: 50px;
 }
 
@@ -196,12 +196,6 @@ nav li a {
   float:left;
 }
 
-.file-input:after {
-  clear: both;
-  display: block;
-  content: "";
-}
-
 .big-icon {
   font-size: 4em;
   text-align: center;
@@ -211,7 +205,7 @@ input[type="file"] {
   opacity: 0;
   height: 100px;
   width: 100%;
-  margin-top: -110px;
+  margin-top: -100px;
   display: block;
 }
 
