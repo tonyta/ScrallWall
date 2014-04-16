@@ -6,3 +6,7 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li {
 li {
   list-style-type: none;
 }
+
+input {
+  font-family: sans-serif;
+}
