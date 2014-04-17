@@ -1,1 +1,3 @@
-$("#counter").html("<%= @artifact.votes %>");
+$("#counter").html("<%= pluralize(@artifact.votes, 'vote') %>");
+$(".upvote").hide();
+$(".downvote").hide();
