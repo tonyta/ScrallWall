@@ -341,6 +341,7 @@ input[type="file"] {
 
 #neighbors {
   float: right;
+  width: 50%;
 }
 
 .neighbor-thumb.template {
