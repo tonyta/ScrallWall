@@ -3,15 +3,8 @@ class NeighborhoodsController < ApplicationController
   end
 
   def show
-    #raise params.inspect
-    #@artifacts = Artifact.all
-    neighborhood = Neighborhood.find(params[:id]).pri_neigh
-    @artifacts = Artifact.bullshit(neighborhood)
-
-    raise @artifacts.inspect
-
-
-    #raise @neighborhood.inspect
+    @neighborhood = Neighborhood.find(params[:id])
+    @artifacts = @neighborhood.artifacts
   end
 
   def all

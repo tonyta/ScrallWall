@@ -38,8 +38,8 @@ $(document).ready(function(e) {
 
   function neighborhoodContentBuilder(data) {
     var popup = L.popup().setContent(
-                  "<div><h3>" + data.name + ":</h3><h4><a href='/neighborhood/" +
-                  data.gid + "'>" + data.artifact_count + " Artifacts Found</a><h4></div>"
+                  "<div><h3>" + data.name + ":</h3><h4><a href='/neighborhoods/" +
+                  data.id + "'>" + data.artifact_count + " Artifacts Found</a><h4></div>"
                 )
     return popup;
   }
