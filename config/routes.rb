@@ -20,5 +20,5 @@ ProjectBernies::Application.routes.draw do
   get 'pictures/neighbors', to: 'pictures#neighbors', constraints: {format: 'json'}
   get 'neighborhoods/find', to: 'neighborhoods#find', constraints: {format: 'json'}
   get 'neighborhoods', to: 'neighborhoods#all', constraints: {format: 'json'}
-  resources :neighborhoods
+  get 'neighborhoods/:id', to: 'neighborhoods#show', as: 'neighborhood'
 end

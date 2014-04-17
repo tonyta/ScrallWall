@@ -1,5 +1,5 @@
 <div id="uploader">
-  <%= form_for @picture do |f| %>
+  <%= form_for Picture.new do |f| %>
     <div class="file-input">
       <p class="text">click or drag here</p>
       <%= f.file_field :image, accept: 'image/jpeg' %>

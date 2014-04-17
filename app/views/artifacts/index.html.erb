@@ -8,13 +8,5 @@
   </div>
 
   <%= render "layouts/uploader" %>
-
-  <div id="thumbs-box">
-      <% @artifacts.each do |art| %>
-      <div class="thumb-box">
-        <div class="thumb"><a href="/artifacts/<%= art.id %>"><%= image_tag art.canonical_picture.image.preview.url %></a></div>
-        <div class="info"><%= art.pictures.count %></div>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'artifacts/gallery' %>
 </div>

@@ -1,0 +1,12 @@
+<%= javascript_include_tag :upload %>
+
+<div class="container">
+  <div id="headings">
+    <h1 class="center"><%= @neighborhood.name %></h1>
+    <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
+    <h2 class="center">Your Community. Your Pictures. Your Art.</h2>
+  </div>
+
+  <%= render "layouts/uploader" %>
+  <%= render 'artifacts/gallery' %>
+</div>

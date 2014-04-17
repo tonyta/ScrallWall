@@ -24,10 +24,10 @@
 
 /* Mapbox CSS overrides */
 
-.leaflet-popup-content {
+/*.leaflet-popup-content {
   width: 160px;
 }
-
+*/
 #mini-map {
   height: 300px;
   border-right: 4px solid white;
