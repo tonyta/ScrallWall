@@ -28,17 +28,25 @@ $(document).ready(function(e) {
   }
 
   function markerContentBuilder(object) {
+    var plural = '';
+    if (object.picture_count > 1) {
+      plural = 's';
+    }
     var popup = L.popup({minWidth:235}).setContent(
-                  "<h4><a href='" + object.show_url + "'><img style='border:8px solid #222' src='" +
-                  object.info_thumb + "'>"+object.picture_count+" Pictures Total</a></h4>"
+                  "<a href='" + object.show_url + "'><img style='border:8px solid #222' src='" +
+                  object.info_thumb + "'><p>"+object.picture_count+" Picture"+plural+"</p></a>"
                 )
     return popup;
   }
 
   function neighborhoodContentBuilder(data) {
+    var neighborhoodLink = '';
+    if (data.artifact_count > 0) {
+      neighborhoodLink = "<a href='/neighborhoods/" + data.id + "'>View them</a></div>";
+    }
     var popup = L.popup().setContent(
-                  "<div><h3>" + data.name + ":</h3><h4><a href='/neighborhoods/" +
-                  data.id + "'>" + data.artifact_count + " Artifacts Found</a><h4></div>"
+                  "<div><h3>" + data.name + ":</h3><p>" + data.artifact_count + " Artifacts Found<p>" +
+                  neighborhoodLink
                 )
     return popup;
   }
