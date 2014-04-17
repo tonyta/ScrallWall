@@ -1,18 +1,16 @@
 <%= javascript_include_tag :pictures %>
 
-<% unless mobile_device? %>
-<div id="art-create" class="container">
-  <h1 class="center">Something new?</h1>
-  <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
-  <h2 class="center">Add your photo to matching artwork. Or make a fresh contribution.</h2>
-<% end %>
-
 <% if mobile_device? %>
   <p class="center mobile">Find your location and save.</p>
   <div id="mini-map" class="mobile"></div>
   <div id="user-image" class="mobile">
     <%= image_tag @picture.image.preview.url %>
   </div>
+<% else %>
+  <div id="art-create" class="container">
+  <h1 class="center">Something new?</h1>
+  <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
+  <h2 class="center">Add your photo to matching artwork. Or make a fresh contribution.</h2>
 <% end %>
 
   <div class="mobile">

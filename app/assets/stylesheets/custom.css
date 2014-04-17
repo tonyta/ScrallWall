@@ -222,7 +222,11 @@ nav li a {
 
 .small-icon {
   width: 30px;
-  padding: 0 10px;
+  padding: 0 5px;
+}
+
+h2 .small-icon {
+  padding-right: 10px;
 }
 
 .extra-small-icon {

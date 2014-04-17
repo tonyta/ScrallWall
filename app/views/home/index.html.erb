@@ -1,6 +1,9 @@
 <%= javascript_include_tag :upload %>
 
 <div class="container home">
+  <div id="home-logo">
+  <% if mobile_device? %><%= image_tag "/images/scrallwall_rev.png" %><% end %>
+  </div>
   <div id="headings">
     <h1>Community Curated<br>Beautification</h1>
   </div>

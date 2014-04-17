@@ -28,6 +28,7 @@
 
   .container.home {
     height: 100%;
+    margin-top: 15%;
   }
 
   body {
@@ -77,6 +78,23 @@
     margin-bottom: 20px;
     height: 200px;
     z-index: 0; 
+  }
+
+  #info-bar {
+    font-size: 3vh;
+  }
+
+  .small-icon {
+    width: 20px; 
+    padding: 0 2px;
+  }
+
+  #thumbs-box.mobile {
+    width: 100%;
+  }
+
+  #images {
+    width: 100%;
   }
 
   #user-image.mobile {
@@ -135,10 +153,24 @@
     bottom: 0;
   }
 
-  .home-page #logo {
-    position: absolute;
-    left: 0;
-    top: 0;
+  .home-page #home-logo {
+    width: 100%;
+    margin: auto;
+  }
+
+  .home-page #home-logo img {
+    width: 150px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .home-page #upload {
+    width: 60px;
+  }
+
+  .home-page #explore {
+    width: 72px;
   }
 
   #logo {
@@ -150,14 +182,24 @@
     background-position: 50% 2%;
   }
 
+  .home-page #headings {
+    height: 50px;
+  }
+
+  .home-page #headings h1 {
+    font-size: 4vh;
+    padding: 0;
+  }
+
   #headings {
     font-size: 10px;
     height: auto;
     width: auto;
   }
 
+
   #headings h1 {
-    font-size: 10vw;
+    font-size: 9vw;
     padding-top: 25%;
   }
 

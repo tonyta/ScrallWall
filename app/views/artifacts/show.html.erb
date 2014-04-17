@@ -20,8 +20,8 @@
       <div id="votes" class="right">
         <span id="counter"><%= @artifact.votes %></span>
 
-        <%= link_to (image_tag("/images/heart_rev.png")), artifact_upvote_path(@artifact), remote: true, method: "put", class: "upvote" %>
-        <%= link_to (image_tag("/images/broken_heart_rev.png")), artifact_downvote_path(@artifact), remote: true, method: "put", class: "downvote" %>
+        <%= link_to (image_tag("/images/heart_rev.png", class: "small-icon")), artifact_upvote_path(@artifact), remote: true, method: "put", class: "upvote" %>
+        <%= link_to (image_tag("/images/broken_heart_rev.png", class: "small-icon")), artifact_downvote_path(@artifact), remote: true, method: "put", class: "downvote" %>
       </div>
     <% end %>
   </div>
@@ -36,8 +36,17 @@
   <% end %>
 
   <div id="images" class="clear-both">
+    <% if mobile_device? %>
+    <div id="mini-map" class="mobile"></div>
+    <div id="thumbs-box" class="mobile">
+      <% @artifact.picture_urls.each do |pic| %>
+      <div class="thumb-box">
+        <div class="thumb"><%= image_tag pic %></div>
+      </div>
+      <% end %>
+    </div>
+    <% else %>
     <div id="mini-map" class="left one-third"></div>
-
     <div id="thumbs-box" class="right two-thirds">
       <% @artifact.picture_urls.each do |pic| %>
       <div class="thumb-box">
@@ -45,6 +54,7 @@
       </div>
       <% end %>
     </div>
+    <% end %>
   </div>
 
 
