@@ -18,9 +18,10 @@ body {
 }
 
 #flagged-artifact {
-  padding: 5px 10px;
+  padding: 9px 10px;
   margin-bottom: 20px;
   background-color: #8C2F1C;
+  line-height: 23px;
 }
 
 #service-id a {
