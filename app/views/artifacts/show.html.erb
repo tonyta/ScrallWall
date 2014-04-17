@@ -12,20 +12,24 @@
 
     <% unless @artifact.votes.to_i <= -10 %>
       <div id="votes" class="right">
-        <%= link_to (image_tag("/images/heart_rev.png")), artifact_upvote_path(@artifact), remote: true, method: "put"%>
+        <%= link_to (image_tag("/images/heart_rev.png")), artifact_upvote_path(@artifact), remote: true, method: "put", class: "upvote" %>
 
         <span id="counter"><%= @artifact.votes %></span>
 
-          <%= link_to (image_tag("/images/broken_heart_rev.png")), artifact_downvote_path(@artifact), remote: true, method: "put"%>
+          <%= link_to (image_tag("/images/broken_heart_rev.png")), artifact_downvote_path(@artifact), remote: true, method: "put", class: "downvote" %>
       </div>
     <% end %>
-
-    <% if @artifact.is_reported %>
-      <p>This so called piece of "art" has been flagged for removal with the City of Chicago.</p>
-      <p>Service Request ID: #<%= @artifact.request_status.pop["service_request_id"]%></p>
-      <p>Request Status: <%= @artifact.request_status.pop["status"].capitalize %></p>
-    <% end %>
   </div>
+
+  <% if @artifact.is_reported %>
+    <div id="flagged-artifact">
+        <p>This so called piece of "art" has been flagged for removal with the City of Chicago.</p>
+        <p>Service Request ID: <span id="service-id">
+          <%= link_to "##{@artifact.request_status.pop["service_request_id"]}", "http://servicetracker.cityofchicago.org/requests/#{@artifact.request_status.pop["service_request_id"]}" %></span>
+
+           Request Status: <span id="service-status"><%= @artifact.request_status.pop["status"].capitalize %></span></p>
+    </div>
+  <% end %>
 
   <div id="images" class="clear-both">
     <div id="mini-map" class="left one-third"></div>

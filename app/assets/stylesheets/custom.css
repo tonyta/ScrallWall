@@ -13,6 +13,20 @@ body {
   margin: 0 auto;
 }
 
+#flagged-artifact {
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  background-color: #8C2F1C;
+}
+
+#service-id a {
+  color: #bbb;
+}
+
+#service-status {
+  color: #bbb;
+}
+
 .center {
   text-align: center;
 }
@@ -403,7 +417,7 @@ input[type="file"] {
   display: block;
   clear: both;
   height: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-bottom: 4px solid white;
 }
 
