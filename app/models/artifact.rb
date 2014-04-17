@@ -61,8 +61,9 @@ class Artifact < ActiveRecord::Base
     image = self.canonical_picture.image
     { lat: self.latitude,
       lng: self.longitude,
+      picture_count: self.pictures.count,
       map_thumb: image.map_thumb.url,
-      info_thumb: image.thumb.url,
+      info_thumb: image.map_show.url,
       show_url: "/artifacts/#{self.id}"
     }
   end

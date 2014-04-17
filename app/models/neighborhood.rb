@@ -28,13 +28,17 @@ class Neighborhood < ActiveRecord::Base
     multipolygon = ActiveRecord::Base.connection.execute(%{
       select ST_AsText(geom) from neighborhoods where gid = %i;
     } % [self.gid]).values.flatten.pop
-    parse_to_geojson(multipolygon)
+    { id: self.gid,
+      name: self.pri_neigh,
+      artifact_count: artifact_count,
+      coordinates: parse_to_geojson(multipolygon)
+    }
   end
 
   private
 
   def parse_to_geojson(multipolygon)
-    multipolygon.match(/\(([\d .\-,]*)\)/)[1].split(',').map{|s| s.split(' ').reverse.map(&:to_f) }.to_json
+    multipolygon.match(/\(([\d .\-,]*)\)/)[1].split(',').map{|s| s.split(' ').reverse.map(&:to_f) }
   end
 end
 
