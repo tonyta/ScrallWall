@@ -14,6 +14,7 @@ class ArtifactsController < ApplicationController
   end
 
   def show
+    @picture = Picture.new
     @artifact = Artifact.find(params[:id])
   end
 
