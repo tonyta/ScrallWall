@@ -11,9 +11,13 @@
     </div>
 
     <div id="votes" class="right">
-      <%= image_tag "/images/broken_heart_rev.png", class: "small-icon" %><%= link_to "", artifact_upvote_path(@artifact), remote: true, method: "put" %>
+
+      <%= link_to (image_tag("/images/heart_rev.png")), artifact_upvote_path(@artifact), remote: true, method: "put"%>
+
       <span id="counter"><%= @artifact.votes %></span>
-      <%= image_tag "/images/heart_rev.png", class: "small-icon" %><%= link_to "", artifact_downvote_path(@artifact), remote: true, method: "put" %>
+
+        <%= link_to (image_tag("/images/broken_heart_rev.png")), artifact_downvote_path(@artifact), remote: true, method: "put"%>
+
     </div>
   </div>
 
