@@ -9,9 +9,10 @@
 </script>
 
 
-
+<% unless mobile_device? %>
 <script>
     $(document).ready(function(){
       $('body').addClass('map-page');
     })
 </script>
+<% end %>

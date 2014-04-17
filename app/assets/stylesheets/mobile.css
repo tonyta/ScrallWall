@@ -228,4 +228,8 @@
      -moz-column-count: 1;
      -webkit-column-count: 1;
    }
+
+   .separator {
+    display: none;
+   }
  }
