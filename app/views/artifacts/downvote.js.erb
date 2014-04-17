@@ -1,3 +1,3 @@
-$("#counter").html("<%= @artifact.votes %> votes");
+$("#counter").html("<%= @artifact.votes %> <%= @artifact.votes == 1 ? "vote" : "votes" %>");
 $(".upvote").hide();
 $(".downvote").hide();
