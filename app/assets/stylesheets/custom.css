@@ -13,6 +13,10 @@ body {
   margin: 0 auto;
 }
 
+#votes img {
+  vertical-align: -5px;
+}
+
 #flagged-artifact {
   padding: 5px 10px;
   margin-bottom: 20px;
@@ -410,7 +414,7 @@ input[type="file"] {
 
 #counter {
   font-size: 24px;
-  padding: 0 20px;
+  padding: 0 8px 0 0;
 }
 
 #info-bar {
@@ -419,6 +423,7 @@ input[type="file"] {
   height: 60px;
   margin-bottom: 20px;
   border-bottom: 4px solid white;
+  line-height: 60px;
 }
 
 #images {
