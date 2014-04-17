@@ -206,6 +206,14 @@ nav li a {
   padding: 0 10px;
 }
 
+.extra-small-icon {
+  width: 16px;
+}
+
+.extra-small-heart {
+  width: 13px;
+}
+
 .big-icon {
   font-size: 4em;
   text-align: center;
@@ -388,6 +396,7 @@ input[type="file"] {
 
 #counter {
   font-size: 24px;
+  padding: 0 20px;
 }
 
 #info-bar {
@@ -406,7 +415,7 @@ input[type="file"] {
   margin-bottom: 20px;
 }
 
-.thumb-box img {
+.thumb-box .thumb img {
   width: 100%;
   display: block;
 }

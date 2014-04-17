@@ -1,3 +1,6 @@
+require 'net/http'
+require 'json'
+
 class Artifact < ActiveRecord::Base
   belongs_to :neighborhood
 
@@ -71,6 +74,38 @@ class Artifact < ActiveRecord::Base
   def self.all_with_picture
     # this could be optimized
     self.all.select { |a| a.pictures.count > 0 }
+  end
+
+  def post_311_request
+    uri = URI.parse('http://test311request.cityofchicago.org/open311/v2/requests.json')
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.set_form_data({'api_key' => 'b8c991cbe23fb49180b59c8744d24824',
+                           'service_code'=> '4fd3b167e750846744000005',
+                           'lat' => self.latitude.to_f,
+                           'long'=> self.longitude.to_f,
+                           'address_string' => "123 Test Street",
+                           'description' => "Test description, Leon strikes again",
+                           'attribute[WHEREIS1]'=> "FRONT",
+                           'attribute[WHATTYP2]'=> "UNK",
+                           'attribute[OVER6FEE]' => 'NO'})
+
+    response = http.request(request)
+    msg = response.body
+
+    JSON.parse(msg).pop["token"]
+  end
+
+  def request_status
+    uri = URI.parse("http://test311request.cityofchicago.org/open311/v2/requests/#{self.open311_token}.json")
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Get.new(uri.request_uri)
+
+    response = http.request(request)
+    msg = response.body
+    JSON.parse(msg)
   end
 
   private
