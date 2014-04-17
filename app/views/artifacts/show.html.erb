@@ -7,7 +7,13 @@
 
   <div id="info-bar">
     <div id="neighborhood" class="left">
-      <h2><%= image_tag "/images/marker_rev.png", class: "small-icon" %><%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %></h2>
+      <h2><%= image_tag "/images/marker_rev.png", class: "small-icon" %>
+        <% if neighborhood = @artifact.neighborhood %>
+          <%= link_to neighborhood.name, neighborhood_path(neighborhood) %>
+        <% else %>
+          <%= 'In the Wild' %>
+        <% end %>
+      </h2>
     </div>
 
     <% unless @artifact.votes.to_i <= -10 %>
