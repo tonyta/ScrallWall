@@ -7,7 +7,13 @@
 
   <div id="info-bar">
     <div id="neighborhood" class="left">
-      <h2><%= image_tag "/images/marker_rev.png", class: "small-icon" %><%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %></h2>
+      <h2><%= image_tag "/images/marker_rev.png", class: "small-icon" %>
+        <% if neighborhood = @artifact.neighborhood %>
+          <%= link_to neighborhood.name, neighborhood_path(neighborhood) %>
+        <% else %>
+          <%= 'In the Wild' %>
+        <% end %>
+      </h2>
     </div>
 
     <% unless @artifact.votes.to_i <= -10 %>
@@ -22,7 +28,7 @@
 
   <% if @artifact.is_reported %>
     <div id="flagged-artifact">
-        <p>This so called piece of "art" has been flagged for removal with the City of Chicago.</p>
+        <p>This piece of so-called "art" has been flagged for removal with the City of Chicago.</p>
         <p>Service Request ID: <span id="service-id">
           <%= link_to "##{@artifact.request_status.pop["service_request_id"]}", "http://servicetracker.cityofchicago.org/requests/#{@artifact.request_status.pop["service_request_id"]}" %></span>
            Request Status: <span id="service-status"><%= @artifact.request_status.pop["status"].capitalize %></span></p>
@@ -35,7 +41,7 @@
     <div id="thumbs-box" class="right two-thirds">
       <% @artifact.picture_urls.each do |pic| %>
       <div class="thumb-box">
-        <div><%= image_tag pic %></div>
+        <div class='thumb'><%= image_tag pic %></div>
       </div>
       <% end %>
     </div>

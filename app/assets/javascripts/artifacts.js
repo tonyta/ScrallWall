@@ -1,15 +1,17 @@
 $(document).ready(function(e) {
   var neighborhood = null;
 
-  var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
-  var myLocation = L.mapbox.featureLayer().addTo(map);
+  var layer = L.mapbox.tileLayer('examples.map-9ijuk24y');
+  var map = L.map('map', {
+      center: [41.8897866, -87.6371788],
+      layers: layer,
+      zoom: 13 // max-zoom is 19
+    });
+
 
   map.locate();
-
   map.on('locationfound', function(e) {
-    map.fitBounds(e.bounds);
-    map.setZoom(15);
-
+    var myLocation = L.mapbox.featureLayer().addTo(map);
     myLocation.setGeoJSON({
         type: "Feature",
         geometry: {
@@ -21,6 +23,8 @@ $(document).ready(function(e) {
           'marker-symbol': 'star-stroked'
         }
     });
+    map.panTo(myLocation.getBounds().getCenter());
+    map.setZoom(15);
   });
 
   function IconFactory(imageUrl){
@@ -28,17 +32,25 @@ $(document).ready(function(e) {
   }
 
   function markerContentBuilder(object) {
+    var plural = '';
+    if (object.picture_count > 1) {
+      plural = 's';
+    }
     var popup = L.popup({minWidth:235}).setContent(
-                  "<h4><a href='" + object.show_url + "'><img style='border:8px solid #222' src='" +
-                  object.info_thumb + "'>"+object.picture_count+" Pictures Total</a></h4>"
+                  "<a href='" + object.show_url + "'><img style='border:8px solid #222' src='" +
+                  object.info_thumb + "'><p>"+object.picture_count+" Picture"+plural+"</p></a>"
                 )
     return popup;
   }
 
   function neighborhoodContentBuilder(data) {
+    var neighborhoodLink = '';
+    if (data.artifact_count > 0) {
+      neighborhoodLink = "<a href='/neighborhoods/" + data.id + "'>View them</a></div>";
+    }
     var popup = L.popup().setContent(
-                  "<div><h3>" + data.name + ":</h3><h4><a href='/neighborhoods/" +
-                  data.id + "'>" + data.artifact_count + " Artifacts Found</a><h4></div>"
+                  "<div><h3>" + data.name + ":</h3><p>" + data.artifact_count + " Artifacts Found<p>" +
+                  neighborhoodLink
                 )
     return popup;
   }
