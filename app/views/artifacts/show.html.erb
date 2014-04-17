@@ -1,4 +1,9 @@
+<%= javascript_include_tag :upload %>
+
 <div class="container">
+
+  <%= render "layouts/uploader" %>
+
   <div id="info-bar">
     <div id="neighborhood" class="left">
       <h2><%= image_tag "/images/marker_rev.png", class: "small-icon" %><%= link_to @artifact.neighborhood.pri_neigh, neighborhood_path(@artifact.neighborhood) %></h2>

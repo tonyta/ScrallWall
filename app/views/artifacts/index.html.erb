@@ -2,9 +2,16 @@
 
 <div class="container">
   <div id="headings">
-    <h1 class="center">The world's lamest headline.</h1>
-    <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
+    <% if !mobile_device? %>
+      <h1 class="center">The world's lamest headline.</h1>
+      <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
+    <% end %>
+    <% if mobile_device? %>
+      <h2>Explore, vote, upload, report.</h2>
+    <% else %>
     <h2 class="center">Explore, vote, upload, report.</h2>
+    <% end %>
+    
   </div>
 
   <%= render "layouts/uploader" %>
