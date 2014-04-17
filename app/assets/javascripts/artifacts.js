@@ -1,6 +1,5 @@
-var neighborhood = null;
-
 $(document).ready(function(e) {
+  var neighborhood = null;
 
   var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
   var myLocation = L.mapbox.featureLayer().addTo(map);
