@@ -1,4 +1,4 @@
-seeds_path = Pathname.new('/root/Dropbox/seeds')
+seeds_path = Pathname.new('/Users/1derfly/Downloads/seeds')
 single_path = seeds_path.join('single', '*')
 group_path = seeds_path.join('group', '*')
 
