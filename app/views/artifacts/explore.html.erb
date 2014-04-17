@@ -3,9 +3,17 @@
 
 <div id="map"></div>
 <%= render "layouts/uploader" %>
+
+
+  <script>
+    var artifacts = <%= raw @artifacts.map(&:to_map_marker).to_json %>;
+  </script>
+
+
+<% unless mobile_device? %>
 <script>
-  var artifacts = <%= raw @artifacts.map(&:to_map_marker).to_json %>;
-  $(document).ready(function(){
-    $('body').addClass('map-page');
-  })
+    $(document).ready(function(){
+      $('body').addClass('map-page');
+    })
 </script>
+<% end %>

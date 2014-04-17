@@ -3,38 +3,131 @@
 /* iPhone */
 /*@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {*/
 @media (max-width: 480px) {
-  body {
-    width:100%;
-    padding: 0 20px;
-  }
-  .home-page #header {
+  html {
     width: 100%;
-  }
-  .home-page #logo a {
-    background-size: 160px auto;
-    background-position: 50% 2%;
-  }
-  #headings {
-    width: 100%;
-    font-size: 10px;
-  }
-  #headings h1 {
-    padding-top: 25%;
-  }
-  #buttons {
-    width: 100%;
+    height: 100%;
   }
 
-  .cancel {display: none;}
+  body, .overlay .bg, .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  body, .overlay .bg, .container {
+    width: auto;
+  }
+
+  .container.home:after {
+    clear: both;
+    display: block;
+    content: "";
+  }
+
+  .container.home {
+    height: 100%;
+  }
+
+  body {
+    height: inherit;
+    padding: 0 20px;
+  }
+
+
+  .container {
+    margin-top: 30%;
+    margin-bottom: 0;
+  }
+
+  .menu-mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .menu-mobile li {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    padding: 10px;
+  }
+
+  body.home-page {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .file-input .text {
+    font-size: 8vw; 
+  }
+
+  #header {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 10%;
+    width: auto;
+  }
+
+  .home-page #logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  .home-page #logo a {
+    background-size: 150px auto;
+    background-position: 50% 2%;
+  }
+
+  #headings {
+    font-size: 10px;
+    height: auto;
+    width: auto;
+  }
+
+  #headings h1 {
+    font-size: 10vw;
+    padding-top: 25%;
+  }
+
+  #headings h2 {
+    font-size: 8vw;
+  }
+
+  #buttons {
+  }
 
   input.submit, button.cancel {
     border-radius: 0;
     display: inline;
   }
-  .menu, #uploader {
+  
+  #uploader {
+    width: auto;
     display: none;
   }
+
   #icons {
     width: 100%;
   }
-}
+
+  #thumbs-box {
+     -moz-column-count: 1;
+     -webkit-column-count: 1;
+   }
+ }
