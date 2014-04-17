@@ -4,7 +4,7 @@ class ArtifactsController < ApplicationController
   end
 
   def explore
-    @artifacts = Artifact.all
+    @artifacts = Artifact.all_with_picture
   end
 
   def new
