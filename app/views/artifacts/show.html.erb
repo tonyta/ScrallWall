@@ -28,7 +28,7 @@
 
   <% if @artifact.is_reported %>
     <div id="flagged-artifact">
-        <p>This so called piece of "art" has been flagged for removal with the City of Chicago.</p>
+        <p>This piece of so-called "art" has been flagged for removal with the City of Chicago.</p>
         <p>Service Request ID: <span id="service-id">
           <%= link_to "##{@artifact.request_status.pop["service_request_id"]}", "http://servicetracker.cityofchicago.org/requests/#{@artifact.request_status.pop["service_request_id"]}" %></span>
            Request Status: <span id="service-status"><%= @artifact.request_status.pop["status"].capitalize %></span></p>
