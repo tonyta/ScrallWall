@@ -1,15 +1,17 @@
 $(document).ready(function(e) {
   var neighborhood = null;
 
-  var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
-  var myLocation = L.mapbox.featureLayer().addTo(map);
+  var layer = L.mapbox.tileLayer('examples.map-9ijuk24y');
+  var map = L.map('map', {
+      center: [41.8897866, -87.6371788],
+      layers: layer,
+      zoom: 13 // max-zoom is 19
+    });
+
 
   map.locate();
-
   map.on('locationfound', function(e) {
-    map.fitBounds(e.bounds);
-    map.setZoom(15);
-
+    var myLocation = L.mapbox.featureLayer().addTo(map);
     myLocation.setGeoJSON({
         type: "Feature",
         geometry: {
@@ -21,6 +23,8 @@ $(document).ready(function(e) {
           'marker-symbol': 'star-stroked'
         }
     });
+    map.panTo(myLocation.getBounds().getCenter());
+    map.setZoom(15);
   });
 
   function IconFactory(imageUrl){
