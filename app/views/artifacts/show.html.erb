@@ -1,4 +1,5 @@
 <%= javascript_include_tag :upload %>
+<%= javascript_include_tag :artifacts_show %>
 
 <div class="container">
 
@@ -28,3 +29,8 @@
     </div>
   </div>
 </div>
+
+<script>
+  var latitude = <%= @artifact.latitude %>
+  var longitude = <%= @artifact.longitude %>
+</script>

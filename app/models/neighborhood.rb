@@ -41,5 +41,3 @@ class Neighborhood < ActiveRecord::Base
     multipolygon.match(/\(([\d .\-,]*)\)/)[1].split(',').map{|s| s.split(' ').reverse.map(&:to_f) }
   end
 end
-
-# Neighborhood.find_by_pri_neigh('Wrigleyville').to_geojson.match(/\(([\d .\-,]*)\)/)[1].split(',').map{|s| s.split(' ').reverse.map(&:to_f) }.to_json
