@@ -1,17 +1,31 @@
 <%= javascript_include_tag :pictures %>
 
-<div id="art-create" class="container">
+<% if mobile_device? %>
+  <p class="center mobile">Find your location and save.</p>
+  <div id="mini-map" class="mobile"></div>
+  <div id="user-image" class="mobile">
+    <%= image_tag @picture.image.preview.url %>
+  </div>
+<% else %>
+  <div id="art-create" class="container">
   <h1 class="center">Something new?</h1>
   <div class="separator center"><%= image_tag '/images/dk_separator_01.png' %></div>
   <h2 class="center">Add your photo to matching artwork. Or make a fresh contribution.</h2>
+<% end %>
 
-  <div>
-      <%= form_for @picture, method: :patch do |f| %>
-        <%= f.text_field :latitude, value: '', type: 'hidden' %>
-        <%= f.text_field :longitude, value: '', type: 'hidden' %>
-        <%= f.submit 'add as new', class: "simple-icon-button" %>
+  <div class="mobile">
+    <%= form_for @picture, method: :patch do |f| %>
+      <%= f.text_field :latitude, value: '', type: 'hidden' %>
+      <%= f.text_field :longitude, value: '', type: 'hidden' %>
+      <% if mobile_device? %>
+      <%= f.submit 'save', class: "simple-icon-button" %>
+      <% else %>
+      <%= f.submit 'add as new', class: "simple-icon-button" %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
+
+<% unless mobile_device? %>
   <div class="inner">
     <div id="user-image">
       <%= image_tag @picture.image.preview.url %>
@@ -27,6 +41,13 @@
     </div>
   </div>
 </div>
+<% end %>
+
+  <div id='neighbors' class='mobile' data-picture-id='<%= @picture.id %>'>
+    <div class='neighbor-thumb template'>
+      <a data-method='patch' href='' rel='nofollow'><img alt='' src=''></a>
+    </div>
+  </div>
 
 <script>
   var latitude = <%= raw @latitude.to_json %>;

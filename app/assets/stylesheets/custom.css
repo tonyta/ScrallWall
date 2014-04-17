@@ -156,13 +156,13 @@ h2 {
   z-index: -1;
 }
 
+.mobile-logo {
+  display: none;
+}
+
 
 .scrallwall-logo {
-  display: block;
-  margin: auto;
-  text-align: center;
   margin-top: -30px;
-  width: 200px;
 }
 
 #map-note {
@@ -222,7 +222,11 @@ nav li a {
 
 .small-icon {
   width: 30px;
-  padding: 0 10px;
+  padding: 0 5px;
+}
+
+h2 .small-icon {
+  padding-right: 10px;
 }
 
 .extra-small-icon {
@@ -496,3 +500,4 @@ input[type="file"] {
   content: "";
   clear: both;
 }
+

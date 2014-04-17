@@ -1,7 +1,11 @@
 <div id="uploader">
   <%= form_for Picture.new do |f| %>
     <div class="file-input">
+      <% if mobile_device? %>
+      <p class="text">add photo</p>
+      <% else %>
       <p class="text">click or drag here</p>
+      <% end %>
       <%= f.file_field :image, accept: 'image/jpeg' %>
       <div id="buttons">
          <%= button_tag "cancel", type: "button", class: "cancel" %>

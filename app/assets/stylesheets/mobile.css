@@ -1,17 +1,235 @@
 /* @media mobile.css portrait and landscape */
 
 /* iPhone */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  * {font-family: sans-serif;}
-  .menu, #uploader {display: none;} 
-  #header { margin-top: -5px;}
-  .container {margin-top: 15%}
-  .container.home {margin-top: 220px; }
-  #icons {width: 100%;}
-  #thumbs-box .info {padding: 2%; font-size: 10vh;}
-  #thumbs-box .thumb-box { border: none; width: 90%; margin: 0 5% 5% 5%;}
-  #thumbs-box {-moz-column-count: 1; -webkit-column-count: 1;}
-  #headings h2 {font-size: 14vh; padding: 0 5%; text-align: left; width: 60%;}
-  #header #logo {margin-top: -10px; margin-right: 20px; height: 400px; width: 300px; float: right;}
-  #logo a {background-size: 300px; width: 250px;}
-}
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {*/
+@media (max-width: 480px) {
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
+  body, .overlay .bg, .container, .art-create .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  body, .overlay .bg, .container, .art-create .container {
+    width: auto;
+  }
+
+  .container.home:after {
+    clear: both;
+    display: block;
+    content: "";
+  }
+
+  .container.home {
+    height: 100%;
+    margin-top: 15%;
+  }
+
+  body {
+    height: inherit;
+    padding: 0 20px;
+  }
+
+
+  .container {
+    margin-top: 30%;
+    margin-bottom: 0;
+  }
+
+  .menu-mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .menu-mobile li {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    padding: 10px;
+  }
+
+  body.home-page {
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  p.mobile {
+    width: 100%;
+    margin: 0 0 20px -10px;
+    padding: 10px;
+    background-color: #8c2F1c;
+
+  }
+
+  #mini-map.mobile {
+    position: relative;
+    margin-bottom: 20px;
+    height: 200px;
+    z-index: 0; 
+  }
+
+  #info-bar {
+    font-size: 3vh;
+  }
+
+  .small-icon {
+    width: 20px; 
+    padding: 0 2px;
+  }
+
+  #thumbs-box.mobile {
+    width: 100%;
+  }
+
+  #images {
+    width: 100%;
+  }
+
+  #user-image.mobile {
+    float: left;
+    position: relative;
+    width: 60px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    z-index: 4;
+    text-align: center;
+    box-shadow: 4px 4px 8px #333;
+  }
+
+  .mobile form {
+    float: right;
+  }
+
+  #mini-map.mobile, #user-image.mobile {
+    border: 4px solid white;
+  }
+
+  #neighbors.mobile {
+    width: 100%;
+  }
+
+  #neighbors.mobile .neighbor-thumb {
+    width: 65px;
+    height: 65px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  #neighbors.mobile .neighbor-thumb img {
+    width: auto;
+  }
+
+  .file-input .text {
+    font-size: 8vw; 
+  }
+
+  #header {
+    position: relative;
+    background-color: #333;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: auto;
+    margin: 0 -20px;
+  }
+
+  #map {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .home-page #home-logo {
+    width: 100%;
+    margin: auto;
+  }
+
+  .home-page #home-logo img {
+    width: 150px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .home-page #upload {
+    width: 60px;
+  }
+
+  .home-page #explore {
+    width: 72px;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  .home-page #logo a {
+    background-size: 150px auto;
+    background-position: 50% 2%;
+  }
+
+  .home-page #headings {
+    height: 50px;
+  }
+
+  .home-page #headings h1 {
+    font-size: 4vh;
+    padding: 0;
+  }
+
+  #headings {
+    font-size: 10px;
+    height: auto;
+    width: auto;
+  }
+
+
+  #headings h1 {
+    font-size: 9vw;
+    padding-top: 25%;
+  }
+
+  #headings h2 {
+    font-size: 8vw;
+  }
+
+  #buttons {
+  }
+
+  input.submit, button.cancel {
+    border-radius: 0;
+    display: inline;
+  }
+  
+  #uploader {
+    width: auto;
+    display: none;
+  }
+
+  #icons {
+    width: 100%;
+  }
+
+  #thumbs-box {
+     -moz-column-count: 1;
+     -webkit-column-count: 1;
+   }
+
+   .separator {
+    display: none;
+   }
+ }
