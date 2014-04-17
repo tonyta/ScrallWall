@@ -93,7 +93,7 @@ class Artifact < ActiveRecord::Base
 
     response = http.request(request)
     msg = response.body
-    # binding.pry
+
     JSON.parse(msg).pop["token"]
   end
 
@@ -105,7 +105,6 @@ class Artifact < ActiveRecord::Base
 
     response = http.request(request)
     msg = response.body
-    #binding.pry
     JSON.parse(msg)
   end
 

@@ -2,7 +2,8 @@
     <% @artifacts.each do |art| %>
     <div class="thumb-box">
       <div class="thumb"><a href="/artifacts/<%= art.id %>"><%= image_tag art.canonical_picture.image.preview.url %></a></div>
-      <div class="info"><%= art.pictures.count %></div>
+
+      <div class="info"><%= art.pictures.count %> <%= image_tag("/images/pics_rev.png", class: "extra-small-icon")%><div class="likes right"><%= art.votes %> <%= image_tag("/images/heart_rev.png", class: "extra-small-heart")%></div></div>
     </div>
   <% end %>
 </div>
