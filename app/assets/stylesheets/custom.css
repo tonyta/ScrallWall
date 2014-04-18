@@ -143,10 +143,10 @@ h2 {
 }
 
 .bg {
-  /*background-image: url('/images/chicagocityskyline.jpg');*/
-  background-image: url('/images/IMG_4697.jpg');
+  background-image: url('/images/IMG_6272b.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 0 -200px;
   z-index: -2;
 }
 
@@ -272,6 +272,7 @@ input[type="file"] {
 }
 
 #uploader {
+  z-index: 5;
   display: none;
 }
 
