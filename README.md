@@ -1,9 +1,9 @@
-##ScrallWall.co
+##[ScrallWall.co](https://www.scrallwall.co "ScrallWall")
 
 Community Curated Beautification
 
 ###The Team:
-- Greg Santikian
+- Greg Santikian @gsantikian
 - Marco Morales
 - Pablo Vergel
 - Tony Ta
