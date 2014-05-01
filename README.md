@@ -3,10 +3,10 @@
 Community Curated Beautification
 
 ###The Team:
-- Greg Santikian @gsantikian
-- Marco Morales
-- Pablo Vergel
-- Tony Ta
+- Greg Santikian ([@gsantikian](https://github.com/gsantikian))
+- Marco Morales ([@marcomo](@https://github.com/marcomo))
+- Pablo Vergel ([@pvergel](https://github.com/pvergel))
+- Tony Ta ([@tonyta](https://github.com/tonyta))
 
 
 ###Description:
