@@ -1,7 +1,7 @@
 $(document).ready(function(e) {
   var neighborhood = null;
 
-  var layer = L.mapbox.tileLayer('examples.map-9ijuk24y');
+  var layer = L.mapbox.tileLayer('1derfly.i9b7f5n7');
   var map = L.map('map', {
       center: [41.8897866, -87.6371788],
       layers: layer,
@@ -23,8 +23,10 @@ $(document).ready(function(e) {
           'marker-symbol': 'star-stroked'
         }
     });
-    map.panTo(myLocation.getBounds().getCenter());
-    map.setZoom(15);
+
+    // auto-pan disabled for better show and tell :)
+    // map.panTo(myLocation.getBounds().getCenter());
+    // map.setZoom(15);
   });
 
   function IconFactory(imageUrl){

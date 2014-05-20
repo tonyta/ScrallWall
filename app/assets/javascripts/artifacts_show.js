@@ -2,7 +2,7 @@ $(document).ready(function(e) {
   var lat = latitude;
   var lng = longitude;
 
-  var layer = L.mapbox.tileLayer('examples.map-9ijuk24y');
+  var layer = L.mapbox.tileLayer('1derfly.i9b7f5n7');
   var map = L.map('mini-map', {
             center: [lat, lng],
             layers: layer,
